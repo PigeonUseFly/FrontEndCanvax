@@ -6,6 +6,7 @@
           <ion-back-button></ion-back-button>
         </ion-buttons>
         <ion-title>Upload file to ionic</ion-title>
+
       </ion-toolbar>
     </ion-header>
     <ion-content></ion-content>
