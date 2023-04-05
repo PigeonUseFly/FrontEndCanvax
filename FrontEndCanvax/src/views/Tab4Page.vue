@@ -2,14 +2,18 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>Upload file to ionic</ion-title>
-
+        <h1>Filips Ionic flik</h1>
+        <link rel="stylesheet" href="variables.css">
       </ion-toolbar>
     </ion-header>
-    <ion-content></ion-content>
+    
+    <ion-content>
+      <input type="button" id="getpeople" value ="Fetch people">
+      <body>
+
+        
+      </body>
+    </ion-content>
   </ion-page>
 </template>
 
