@@ -1,6 +1,8 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+      </ion-header>
       <ion-button>DA336A</ion-button>
     </ion-content>
   </ion-page>

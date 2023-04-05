@@ -22,13 +22,23 @@
           <ion-icon aria-hidden="true" :icon="heart" />
           <ion-label>Filips test flik</ion-label>
         </ion-tab-button>
-      
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
 import { calendarClearOutline, folderOutline, settingsOutline,heart } from 'ionicons/icons';
+export default {
+    components: { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon },
+    data() {
+      return {
+        calendarClearOutline,
+        folderOutline,
+        settingsOutline,
+        heart,
+      };
+    },
+  };
 </script>
