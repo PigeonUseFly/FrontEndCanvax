@@ -24,3 +24,6 @@ router.isReady().then(() => {
     app.mount('#app');
 });
 //# sourceMappingURL=main.js.map
+function calender (){
+    alert("You clicked")
+}
