@@ -2,14 +2,16 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
+        <link rel="shortcut icon" href="">
         <h1>Filips Ionic flik</h1>
         <link rel="stylesheet" href="variables.css">
       </ion-toolbar>
     </ion-header>
     
     <ion-content>
-      <input type="button" id="getpeople" value ="Fetch people">
       <body>
+      <input type="button" id="getpeople" value ="Fetch people(Namnet på knappen)">
+      
 
         
       </body>

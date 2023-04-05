@@ -24,6 +24,9 @@ router.isReady().then(() => {
     app.mount('#app');
 });
 //# sourceMappingURL=main.js.map
-function calender (){
-    alert("You clicked")
+function getpeople () {
+    alert("button clicked");
 }
+
+const button = document.getElementById('getpeople');
+button.addEventListener('click',getpeople);
