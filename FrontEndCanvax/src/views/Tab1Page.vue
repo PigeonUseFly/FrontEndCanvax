@@ -1,5 +1,7 @@
 <template>
   <ion-page>
+    <ion-header>
+    </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense"></ion-header>
       <ExploreContainer name="Tab 1 page" />
