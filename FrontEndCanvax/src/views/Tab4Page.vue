@@ -17,7 +17,7 @@
       </body>
     </ion-content>
   </ion-page>
-</template>
+</template> // Viktigt!
 
 <script setup lang="ts">
   import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
