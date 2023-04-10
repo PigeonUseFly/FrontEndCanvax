@@ -1,9 +1,10 @@
 <template>
   <ion-page>
     <ion-header>
+      <ion-title>Filips Ionic flik</ion-title>
       
         <link rel="shortcut icon" href="">
-        <h1>Filips Ionic flik</h1>
+     
         <link rel="stylesheet" href="variables.css">
     
     </ion-header>
@@ -20,5 +21,6 @@
 </template>
 
 <script setup lang="ts">
-  import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle } from '@ionic/vue';
+  import {IonPage, IonHeader, IonTitle, IonContent} from '@ionic/vue';
+
 </script>
