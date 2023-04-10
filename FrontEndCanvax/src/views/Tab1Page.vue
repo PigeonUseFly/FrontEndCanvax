@@ -21,11 +21,11 @@
 </template>
 
 <script lang="ts">
-  import { IonCol, IonGrid, IonRow, IonPage, IonHeader, IonContent } from '@ionic/vue';
+  import { IonCol, IonGrid, IonRow, IonPage, IonHeader, IonContent,IonToolbar} from '@ionic/vue';
   import ExploreContainer from '@/components/ExploreContainer.vue';
   import { defineComponent } from 'vue';
   export default defineComponent({
-    components: { IonCol, IonGrid, IonRow,IonPage,IonHeader,IonContent },
+    components: { IonCol, IonGrid, IonRow,IonPage,IonHeader,IonContent},
   });
 
 </script>

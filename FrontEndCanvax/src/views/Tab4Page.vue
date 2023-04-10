@@ -1,26 +1,22 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-title>Filips Ionic flik</ion-title>
-      
-        <link rel="shortcut icon" href="">
-     
-        <link rel="stylesheet" href="variables.css">
-    
+     <ion-toolbar>
+      <ion-title>Importera kalender</ion-title>
+    </ion-toolbar>
     </ion-header>
-    
     <ion-content>
-      <body>
-      <input type="button" id="getpeople" value ="Fetch people(Namnet på knappen)">
-      
-
-        
-      </body>
+       <ion-list>
+        <h2> Välj kurs nedan: </h2>
+  <ion-item>da339a</ion-item>
+  <ion-item>da211a</ion-item>
+  <ion-item>da297a</ion-item>
+       </ion-list> 
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-  import {IonPage, IonHeader, IonTitle, IonContent} from '@ionic/vue';
+  import {IonList,IonPage, IonHeader, IonTitle, IonContent, IonToolbar} from '@ionic/vue';
 
 </script>
