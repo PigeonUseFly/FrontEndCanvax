@@ -28,6 +28,10 @@ const routes = [
             {
                 path: 'tab4',
                 component: () => import('@/views/Tab4Page.vue')
+            },
+            {
+                path: 'WhenClicked',
+                component: () => import('@/views/WhenClicked.vue')
             }
             
         ]

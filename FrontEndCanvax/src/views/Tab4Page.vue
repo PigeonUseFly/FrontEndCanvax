@@ -1,7 +1,7 @@
 <template>
- <base-layout page-title="Kurser">
+  <base-layout page-title="Scheman">
        <ion-list>
-          <ion-item>da339a</ion-item>
+          <ion-item router-link="FrontEndCanvax\src\views\WhenClicked.vue">da339a</ion-item>
           <ion-item>da211a</ion-item>
           <ion-item>da297a</ion-item>
        </ion-list> 
