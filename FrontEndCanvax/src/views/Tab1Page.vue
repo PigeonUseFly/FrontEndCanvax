@@ -25,8 +25,9 @@
   import ExploreContainer from '@/components/ExploreContainer.vue';
   import { defineComponent } from 'vue';
   export default defineComponent({
-    components: { IonCol, IonGrid, IonRow },
+    components: { IonCol, IonGrid, IonRow,IonPage,IonHeader,IonContent },
   });
+
 </script>
 
 <style scoped>
