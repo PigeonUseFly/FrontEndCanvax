@@ -19,8 +19,8 @@
         </ion-tab-button>
 
         <ion-tab-button tab="tab4" href="/tabs/tab4">
-          <ion-icon aria-hidden="true" :icon="heart" />
-          <ion-label>Filips test flik</ion-label>
+          <ion-icon aria-hidden="true" :icon="arrowDownCircleOutline" />
+          <ion-label>Import</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { calendarClearOutline, folderOutline, settingsOutline,heart } from 'ionicons/icons';
+import { arrowDownCircleOutline, calendarClearOutline, folderOutline, settingsOutline} from 'ionicons/icons';
 export default {
     components: { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon },
     data() {
@@ -37,7 +37,7 @@ export default {
         calendarClearOutline,
         folderOutline,
         settingsOutline,
-        heart,
+        arrowDownCircleOutline,
       };
     },
   };
