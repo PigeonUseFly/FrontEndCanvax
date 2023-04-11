@@ -7,13 +7,13 @@
       <ExploreContainer name="Tab 1 page" />
        <ion-grid>
          <ion-row>
-           <ion-col>Mon</ion-col>
-           <ion-col>Tue</ion-col>
-           <ion-col>Wed</ion-col>
-           <ion-col>Thur</ion-col>
-           <ion-col>Fri</ion-col>
-           <ion-col>Sun</ion-col>
-           <ion-col>Sat</ion-col>
+           <ion-col>Mån</ion-col>
+           <ion-col>Tis</ion-col>
+           <ion-col>Ons</ion-col>
+           <ion-col>Tors</ion-col>
+           <ion-col>Fre</ion-col>
+           <ion-col>Lör</ion-col>
+           <ion-col>Sön</ion-col>
          </ion-row>
        </ion-grid>
     </ion-content>
