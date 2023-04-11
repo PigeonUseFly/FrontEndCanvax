@@ -7,7 +7,7 @@
       <ExploreContainer name="Tab 1 page" />
        <ion-grid>
          <ion-row>
-           <ion-col>Mån</ion-col>
+           <ion-col>Månzzzzzzzzzzz</ion-col>
            <ion-col>Tis</ion-col>
            <ion-col>Ons</ion-col>
            <ion-col>Tors</ion-col>
