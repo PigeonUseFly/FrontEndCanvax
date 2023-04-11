@@ -11,7 +11,7 @@
            <ion-col>Tue</ion-col>
            <ion-col>Wed</ion-col>
            <ion-col>Thur</ion-col>
-           <ion-col>Fri</ion-col> //Hejsan!!!!!!!!!!!!!!!!!
+           <ion-col>Fri</ion-col>
            <ion-col>Sun</ion-col>
            <ion-col>Sat</ion-col>
          </ion-row>
