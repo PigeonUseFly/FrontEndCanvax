@@ -1,21 +1,21 @@
 <template>
-  <base-layout page-title="Scheman">
-       <ion-list>
-          <ion-item router-link="FrontEndCanvax\src\views\WhenClicked.vue">da339a</ion-item>
-          <ion-tab-bar slot="bottom">// Gör att det går att placera om saker
-          <ion-item>da211a</ion-item>
-          <ion-item>da297a</ion-item>
-        </ion-tab-bar>
-        </ion-list> 
-       
-      </base-layout>
+  <ion-page>
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+      </ion-header>
+        <ion-list>
+          <ion-item>
+            <ion-button @click="loadFile">Ladda kalenderfil</ion-button>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-page>
 </template>
 
-<script>
- import { IonList, IonItem} from '@ionic/vue';
 
- export default {
-    components: { IonList, IonItem },
-  };
+<script setup lang="ts">
+import { IonPage, IonHeader, IonContent } from '@ionic/vue';
+
+
 
 </script>
