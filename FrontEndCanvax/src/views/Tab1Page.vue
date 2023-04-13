@@ -28,6 +28,8 @@
     components: { IonGrid, IonRow,IonPage,IonHeader,IonContent},
   });
 
+  
+
 </script>
 
 <style scoped>
