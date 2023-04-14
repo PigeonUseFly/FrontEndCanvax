@@ -1,0 +1,6 @@
+[{"empId": 1,"EmpName": "Filip","deptName":"Staffanstorp"},
+{"empId": 2,"EmpName": "Sara","deptName":"Staffanstorp"},
+{"empId": 3,"EmpName": "Vilma","deptName":"Staffanstorp"},    {"empId": 4,"EmpName": "Melker","deptName":"Staffanstorp"},
+{"empId": 5,"EmpName": "David","deptName":"Stockholm"},
+{"empId": 6,"EmpName": "Elias","deptName":"Stockholm"},
+{"empId": 7,"EmpName": "Levi","deptName":"Stockholm"}]
