@@ -46,4 +46,8 @@ export default router;
 fetch('./data.json') // Kan hämta från server med syntax: ('https://server.com/data.json')
     .then((response) => response.json())
     .then((json) => console.log(json));
+
+    import data from './data.json' assert { type: 'JSON' };
+    console.log(data);
+
 //# sourceMappingURL=index.js.map
