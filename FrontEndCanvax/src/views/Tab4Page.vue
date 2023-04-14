@@ -2,6 +2,8 @@
   <ion-page>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
+
+        
       </ion-header>
         <ion-list>
           <ion-item>
