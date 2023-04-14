@@ -17,7 +17,4 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonContent } from '@ionic/vue';
-
-
-
 </script>

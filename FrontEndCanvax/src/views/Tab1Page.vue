@@ -1,5 +1,12 @@
 <template>
   <ion-page>
+    <div id="app">
+    <ul>
+      <li v-for="user in users" :key="user.id">
+         {{user.name}}
+       </li>
+    </ul>
+  </div>
     <ion-header>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -21,12 +28,15 @@
 </template>
 
 <script lang="ts">
+
   import { IonGrid, IonRow, IonPage, IonHeader, IonContent,IonToolbar} from '@ionic/vue';
-  import ExploreContainer from '@/components/ExploreContainer.vue';
-  import { defineComponent } from 'vue';
-  export default defineComponent({
+  export default {
     components: { IonGrid, IonRow,IonPage,IonHeader,IonContent},
-  });
+ 
+  };
+ 
+
+  
 
   
 
