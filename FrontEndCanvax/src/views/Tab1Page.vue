@@ -1,12 +1,5 @@
 <template>
   <ion-page>
-    <div id="app">
-    <ul>
-      <li v-for="user in users" :key="user.id">
-         {{user.name}}
-       </li>
-    </ul>
-  </div>
     <ion-header>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -14,7 +7,7 @@
       <ExploreContainer name="Tab 1 page" />
        <ion-grid>
          <ion-row>
-           <ion-col>Månzzzzzzzzzzz</ion-col>
+           <ion-col>Mon</ion-col>
            <ion-col>Tis</ion-col>
            <ion-col>Ons</ion-col>
            <ion-col>Tors</ion-col>

@@ -4,7 +4,7 @@
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon aria-hidden="true" :icon="calendarClearOutline" />
+          <ion-icon aria-hidden="true" :icon="folderOutline" />
           <ion-label>Schema</ion-label>
         </ion-tab-button>
 
@@ -19,8 +19,8 @@
         </ion-tab-button>
 
         <ion-tab-button tab="tab4" href="/tabs/tab4">
-          <ion-icon aria-hidden="true" :icon="arrowDownCircleOutline" />
-          <ion-label>Import</ion-label>
+          <ion-icon aria-hidden="true" :icon="calendarClearOutline" />
+          <ion-label>Calender</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
