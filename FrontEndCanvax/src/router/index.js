@@ -42,4 +42,8 @@ const router = createRouter({
     routes
 });
 export default router;
+
+fetch('./data.json') // Kan hämta från server med syntax: ('https://server.com/data.json')
+    .then((response) => response.json())
+    .then((json) => console.log(json));
 //# sourceMappingURL=index.js.map
