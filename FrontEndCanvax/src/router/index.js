@@ -1,6 +1,8 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import TabsPage from '../views/TabsPage.vue';
-const routes = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var vue_router_1 = require("@ionic/vue-router");
+import TabsPage from '../views/TabsPage.vue'
+var routes = [
     {
         path: '/',
         redirect: '/tabs/tab1'
@@ -15,39 +17,25 @@ const routes = [
             },
             {
                 path: 'tab1',
-                component: () => import('@/views/Tab1Page.vue')
+                component: function () { return Promise.resolve().then(function () { return require('@/views/Tab1Page.vue'); }); },
             },
             {
                 path: 'tab2',
-                component: () => import('@/views/Tab2Page.vue')
+                component: function () { return Promise.resolve().then(function () { return require('@/views/Tab2Page.vue'); }); }
             },
             {
                 path: 'tab3',
-                component: () => import('@/views/Tab3Page.vue')
+                component: function () { return Promise.resolve().then(function () { return require('@/views/Tab3Page.vue'); }); }
             },
             {
                 path: 'tab4',
-                component: () => import('@/views/Tab4Page.vue')
+                component: function () { return Promise.resolve().then(function () { return require('@/views/Tab1Page.vue'); }); }
             },
-            {
-                path: 'WhenClicked',
-                component: () => import('@/views/WhenClicked.vue')
-            }
-            
         ]
     }
 ];
-const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
+var router = (0, vue_router_1.createRouter)({
+    history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
+    routes: routes
 });
-export default router;
-
-fetch('./data.json') // Kan hämta från server med syntax: ('https://server.com/data.json')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-
-    import data from './data.json' assert { type: 'JSON' };
-    console.log(data);
-
-//# sourceMappingURL=index.js.map
+exports.default = router;
