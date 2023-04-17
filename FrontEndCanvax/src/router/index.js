@@ -40,37 +40,22 @@ var router = (0, vue_router_1.createRouter)({
 });
 exports.default = router; */
 
-/*const fs = require("fs");
-
-function jsonReader(filePath, cb) {
-  fs.readFile(filePath, (err, fileData) => {
-    if (err) {
-      return cb && cb(err);
-    }
-    try {
-      const object = JSON.parse(fileData);
-      return cb && cb(null, object);
-    } catch (err) {
-      return cb && cb(err);
-    }
-  });
+function readJsonFile(file, callback) {
+  var rawFile = new XMLHttpRequest();
+  rawFile.overrideMimeType("application/json");
+  rawFile.open("GET", file, true);
+  rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4 && rawFile.status == "200") {
+          callback(rawFile.responseText);
+      }
+  }
+  rawFile.send(null);
 }
 
-jsonReader("events.json", (err, customer) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log(customer.address); // => "Infinity Loop Drive"
-  });
-
-  */
-
-  let url = 'https://github.com/PigeonUseFly/CanvaxBackEnd/blob/testbranch-JSONfil';
-
-  fetch(url)
-  .then(res => res.json())
-  .then(out =>
-    console.log('Checkout this JSON! ', out))
-  .catch(err => { throw err });
-
+readJsonFile("https://walidamriou.github.io/data.json", function(text){
+  var data = JSON.parse(text);
+  console.log(data);
+  //alert(data[0].data);
+  var elem = document.getElementById("datadisplay");
+  elem.innerHTML = data.data['id']; //we want to read: "id": "123664" 
+});
