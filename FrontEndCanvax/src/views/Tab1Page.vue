@@ -8,12 +8,7 @@
        <ion-grid>
          <ion-row>
            <ion-col>Mon</ion-col>
-           <ion-col>Tis</ion-col>
-           <ion-col>Ons</ion-col>
-           <ion-col>Tors</ion-col>
-           <ion-col>Fre</ion-col>
-           <ion-col>Lör</ion-col>
-           <ion-col>Sön</ion-col>
+       
          </ion-row>
        </ion-grid>
     </ion-content>
