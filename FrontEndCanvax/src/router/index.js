@@ -40,7 +40,7 @@ var router = (0, vue_router_1.createRouter)({
 });
 exports.default = router; */
 
-const fs = require("fs");
+/*const fs = require("fs");
 
 function jsonReader(filePath, cb) {
   fs.readFile(filePath, (err, fileData) => {
@@ -63,3 +63,14 @@ jsonReader("events.json", (err, customer) => {
     }
     console.log(customer.address); // => "Infinity Loop Drive"
   });
+
+  */
+
+  let url = 'https://github.com/PigeonUseFly/CanvaxBackEnd/blob/testbranch-JSONfil';
+
+  fetch(url)
+  .then(res => res.json())
+  .then(out =>
+    console.log('Checkout this JSON! ', out))
+  .catch(err => { throw err });
+
