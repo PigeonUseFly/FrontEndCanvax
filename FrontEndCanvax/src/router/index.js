@@ -63,3 +63,4 @@ jsonReader("events.json", (err, customer) => {
     }
     console.log(customer.address); // => "Infinity Loop Drive"
   });
+  indexedDB
