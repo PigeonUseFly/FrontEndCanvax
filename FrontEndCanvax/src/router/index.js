@@ -1,4 +1,4 @@
-/*"use strict";
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_router_1 = require("@ionic/vue-router");
 import TabsPage from '../views/TabsPage.vue'
@@ -38,9 +38,9 @@ var router = (0, vue_router_1.createRouter)({
     history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
     routes: routes
 });
-exports.default = router; */
+exports.default = router;
 
-function readJsonFile(file, callback) {
+/*function readJsonFile(file, callback) {
   var rawFile = new XMLHttpRequest();
   rawFile.overrideMimeType("application/json");
   rawFile.open("GET", file, true);
@@ -58,4 +58,4 @@ readJsonFile("https://walidamriou.github.io/data.json", function(text){
   //alert(data[0].data);
   var elem = document.getElementById("datadisplay");
   elem.innerHTML = data.data['id']; //we want to read: "id": "123664" 
-});
+});*/
