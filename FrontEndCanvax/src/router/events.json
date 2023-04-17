@@ -1,18 +1,12 @@
-"calender" :{
-  "year":[2023]
-  "month":
-    {
-      "name": "March"
-      "date": "2023-03-27"
-      "day" :"Måndag"
-    }
-  }
-[  {
+[ {
   "summary" : "Program: TGSPA22h TGSYA22h Kurs.grp: Flertrådad programmering, 7.5 hp Fristående kurs,  50% dagtid Flertrådad programmering, 7.5 hp Kurs inom program,  50% dagtid Sign: TSFANA Moment: F1 Kursintroduktion, trådar och processer Aktivitetstyp: Okänd",
   "startDate" : "2023-03-27 09:15:00",
   "endDate" : "2023-03-27 12:00:00",
   "location" : "OR:D131"
 }, {
+  "date": "2023-03-27",
+      "day" :"Tisdag",
+
   "summary" : "Program: TGIAA22h TGSYA22h Kurs.grp: Systemutveckling och projekt I, 15 hp Kurs inom program,  50% dagtid Sign: TSKRAL Moment: Sys+IA: Kontrollpunkt Projektplan och YouTrack, 8 grupper, FÖRVÄNTAD NÄRVARO Aktivitetstyp: Okänd",
   "startDate" : "2023-03-27 13:15:00",
   "endDate" : "2023-03-27 17:00:00",
