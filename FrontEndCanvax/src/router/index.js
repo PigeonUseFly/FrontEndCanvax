@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_router_1 = require("@ionic/vue-router");
 import TabsPage from '../views/TabsPage.vue'
@@ -38,4 +38,28 @@ var router = (0, vue_router_1.createRouter)({
     history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
     routes: routes
 });
-exports.default = router;
+exports.default = router; */
+
+const fs = require("fs");
+
+function jsonReader(filePath, cb) {
+  fs.readFile(filePath, (err, fileData) => {
+    if (err) {
+      return cb && cb(err);
+    }
+    try {
+      const object = JSON.parse(fileData);
+      return cb && cb(null, object);
+    } catch (err) {
+      return cb && cb(err);
+    }
+  });
+}
+
+jsonReader("events.json", (err, customer) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(customer.address); // => "Infinity Loop Drive"
+  });
