@@ -1,4 +1,5 @@
-[ {
+const events = [
+{
   "summary" : "Program: TGSPA22h TGSYA22h Kurs.grp: Flertrådad programmering, 7.5 hp Fristående kurs,  50% dagtid Flertrådad programmering, 7.5 hp Kurs inom program,  50% dagtid Sign: TSFANA Moment: F1 Kursintroduktion, trådar och processer Aktivitetstyp: Okänd",
   "startDate" : "2023-03-27 09:15:00",
   "endDate" : "2023-03-27 12:00:00",
@@ -621,4 +622,5 @@
   "startDate" : "2023-08-31 08:15:00",
   "endDate" : "2023-08-31 12:15:00",
   "location" : "KR:Tentasal 1-6"
-} ]
+} 
+];

@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "FrontEndCanvax",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - FrontEndCanvax",
+			"detail": "vue-cli-service build"
+		}
+	]
+}
