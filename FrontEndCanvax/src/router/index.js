@@ -39,6 +39,7 @@ var router = (0, vue_router_1.createRouter)({
     history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
     routes: routes
 });
+<<<<<<< HEAD
 exports.default = router;
 */
 /*fetch('https://github.com/PigeonUseFly/CanvaxBackEnd/blob/testbranch-JSONfil/events.json')
@@ -74,3 +75,30 @@ fs.readFile("./events.json", "utf8", (err, jsonString) => {
   }
   console.log("File data:", jsonString);
 });
+=======
+exports.default = router; */
+
+const fs = require("fs");
+
+function jsonReader(filePath, cb) {
+  fs.readFile(filePath, (err, fileData) => {
+    if (err) {
+      return cb && cb(err);
+    }
+    try {
+      const object = JSON.parse(fileData);
+      return cb && cb(null, object);
+    } catch (err) {
+      return cb && cb(err);
+    }
+  });
+}
+
+jsonReader("events.json", (err, customer) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(customer.address); // => "Infinity Loop Drive"
+  });
+>>>>>>> 44ea1cf6e896c2e5228542ff421933655ad326de
