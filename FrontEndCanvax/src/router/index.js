@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_router_1 = require("@ionic/vue-router");
 import TabsPage from '../views/TabsPage.vue'
@@ -34,28 +34,43 @@ var routes = [
         ]
     }
 ];
+
 var router = (0, vue_router_1.createRouter)({
     history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
     routes: routes
 });
 exports.default = router;
+*/
+/*fetch('https://github.com/PigeonUseFly/CanvaxBackEnd/blob/testbranch-JSONfil/events.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Do something with the data
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  }); */
 
-/*function readJsonFile(file, callback) {
-  var rawFile = new XMLHttpRequest();
-  rawFile.overrideMimeType("application/json");
-  rawFile.open("GET", file, true);
-  rawFile.onreadystatechange = function() {
-      if (rawFile.readyState === 4 && rawFile.status == "200") {
-          callback(rawFile.responseText);
-      }
+ /* const xhr = new XMLHttpRequest();
+xhr.open('GET', '/example.json');
+xhr.onload = () => {
+  if (xhr.status === 200) {
+    const data = JSON.parse(xhr.responseText);
+    console.log(data);
+  } else {
+    console.error('Failed to fetch data.');
   }
-  rawFile.send(null);
-}
+};
+xhr.send();*/
 
-readJsonFile("https://walidamriou.github.io/data.json", function(text){
-  var data = JSON.parse(text);
-  console.log(data);
-  //alert(data[0].data);
-  var elem = document.getElementById("datadisplay");
-  elem.innerHTML = data.data['id']; //we want to read: "id": "123664" 
-});*/
+
+/*FUNGERAR!! RÖR EJ!! Enklaste sättet men inte bästa */
+const fs = require("fs");
+fs.readFile("./events.json", "utf8", (err, jsonString) => {
+  if (err) {
+    console.log("File read failed:", err);
+    return;
+  }
+  console.log("File data:", jsonString);
+});
