@@ -20,14 +20,13 @@ import './theme/variables.css';
 
 /* Filips layout */
 import BaseLayout from './components/BaseLayout.vue'
+
 const app = createApp(App)
+    .use(router)
     .use(IonicVue)
-    .use(router);
-
-app.component('base-layout', BaseLayout);
-
 
     router.isReady().then(() => {
     app.mount('#app');
 });
+
 //# sourceMappingURL=main.js.map

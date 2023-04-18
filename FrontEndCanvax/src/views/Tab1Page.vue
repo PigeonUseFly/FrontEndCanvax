@@ -20,12 +20,7 @@
   import { IonGrid, IonRow, IonPage, IonHeader, IonContent,IonToolbar} from '@ionic/vue';
   export default {
     components: { IonGrid, IonRow,IonPage,IonHeader,IonContent},
- 
   };
- 
-
-  
-
   
 
 </script>

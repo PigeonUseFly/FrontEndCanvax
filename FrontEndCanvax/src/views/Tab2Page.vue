@@ -10,4 +10,6 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+console.log("hejsan");
+
 </script>
