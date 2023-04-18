@@ -1,4 +1,4 @@
-/*"use strict";
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var vue_router_1 = require("@ionic/vue-router");
 import TabsPage from '../views/TabsPage.vue'
@@ -39,31 +39,6 @@ var router = (0, vue_router_1.createRouter)({
     history: (0, vue_router_1.createWebHistory)(process.env.BASE_URL),
     routes: routes
 });
-<<<<<<< HEAD
-exports.default = router;
-*/
-/*fetch('https://github.com/PigeonUseFly/CanvaxBackEnd/blob/testbranch-JSONfil/events.json')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    // Do something with the data
-  })
-  .catch(error => {
-    console.error(error);
-    // Handle the error
-  }); */
-
- /* const xhr = new XMLHttpRequest();
-xhr.open('GET', '/example.json');
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    const data = JSON.parse(xhr.responseText);
-    console.log(data);
-  } else {
-    console.error('Failed to fetch data.');
-  }
-};
-xhr.send();*/
 
 
 /*FUNGERAR!! RÖR EJ!! Enklaste sättet men inte bästa */
