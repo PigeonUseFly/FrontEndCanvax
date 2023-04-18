@@ -74,4 +74,5 @@ fs.readFile("./events.json", "utf8", (err, jsonString) => {
     return;
   }
   console.log("File data:", jsonString);
+  console.log('Har morötter dialekt?')
 });
