@@ -1,7 +1,0 @@
-{
-  "name": "FrontEndCanvax",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}
