@@ -32,4 +32,4 @@ router.isReady().then(() => {
   app.mount('#app');
 });
 
-/* Ingen problem ta emot */
+/* Ingen problem */
