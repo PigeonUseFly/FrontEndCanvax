@@ -28,8 +28,12 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 import { ref } from 'vue';
 
+
+
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+
+
 
 const attributes = ref([
   {
