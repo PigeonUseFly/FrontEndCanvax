@@ -5,43 +5,29 @@
         <h1> Canvax</h1>
       </ion-toolbar>
       </ion-header>
-      
-      <vue-cal class="vuecal--blue-theme"></vue-cal>
+       <vue-cal class="vuecal--blue-theme"></vue-cal>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
-        </ion-toolbar>
       </ion-header>
-      <ion-header>
-      <ion-toolbar>
-        <h6>7 dagars kalender</h6>
-      </ion-toolbar>
-      </ion-header>
-     <VCalendar view="weekly" />
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
 
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import { ref } from 'vue';
-
-
+<script setup>
 
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
-
-
-
-const attributes = ref([
-  {
-    highlight: true,
-    dates: {
-      start: new Date(2023, 0, 1),
-    },
-  },
-]);
-
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.vuecal {height: 90vh;}
+</style>

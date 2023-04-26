@@ -4,7 +4,6 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -13,5 +12,14 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom'
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData:
+          '@import "/src/../node_modules/wave-ui/src/wave-ui/scss/_variables.scss";'
+      }
+    }
+  },
+  plugins: [vue()]
 })
