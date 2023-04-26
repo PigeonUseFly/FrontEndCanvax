@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" :events="events" @ready="fetchEvents" ></vue-cal>
       </ion-toolbar>
       </ion-header>
       <ion-content :fullscreen="true">
