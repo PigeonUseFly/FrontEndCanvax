@@ -16,27 +16,19 @@
 <script>
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
-import axios from 'axios'
 
-export default {
-  components: {
-    VueCal
-  },
-  data() {
-    return {
-      events: []
-    }
-  },
-  created() {
-    axios.get('./Calendar.json')
-      .then(response => {
-        this.events = response.data.events
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-}
+//fetch('src/views/Calendar.json')
+fetch('src/views/Calendar.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Do something with the data
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  });
+
 </script>
 
 <style>
@@ -51,3 +43,4 @@ export default {
 
 .vuecal {height: 90vh;}
 </style>
+
