@@ -18,7 +18,7 @@ import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 
 //fetch('src/views/Calendar.json')
-fetch('src/views/Calendar.json')
+fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
   .then(response => response.json())
   .then(data => {
     console.log(data);
