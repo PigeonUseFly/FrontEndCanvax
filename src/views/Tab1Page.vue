@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
       </ion-toolbar>
       </ion-header>
       <ion-content :fullscreen="true">
@@ -13,9 +13,7 @@
   </ion-page>
 </template>
 
-
-<script setup>
-
+<script>
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 import axios from 'axios'
@@ -39,7 +37,6 @@ export default {
       })
   }
 }
-
 </script>
 
 <style>
