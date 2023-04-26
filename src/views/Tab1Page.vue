@@ -6,7 +6,7 @@
       </ion-toolbar>
       </ion-header>
       
-      
+      <vue-cal class="vuecal--blue-theme"></vue-cal>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
@@ -18,7 +18,7 @@
         <h6>7 dagars kalender</h6>
       </ion-toolbar>
       </ion-header>
-      <VCalendar view="weekly" />
+     <VCalendar view="weekly" />
     </ion-content>
   </ion-page>
 </template>
@@ -36,7 +36,5 @@ const attributes = ref([
     },
   },
 ]);
-
-
 
 </script>

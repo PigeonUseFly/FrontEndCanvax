@@ -23,6 +23,7 @@
     "ionicons": "^7.0.0",
     "v-calendar": "^3.0.3",
     "vue": "^3.2.47",
+    "vue-cal": "^4.8.1",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
