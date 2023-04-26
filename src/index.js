@@ -1,4 +1,4 @@
-fetch('http://localhost:8080/programs/Filip')
+fetch('https://jsonplaceholder.typicode.com/posts')
   .then(response => response.json())
   .then(data => {
     console.log(data);
