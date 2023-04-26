@@ -31,5 +31,3 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount('#app');
 });
-
-/* Ingen sås? */
