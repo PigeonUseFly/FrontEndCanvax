@@ -18,6 +18,7 @@
     "@ionic/pwa-elements": "^3.1.1",
     "@ionic/vue": "^7.0.3",
     "@ionic/vue-router": "^7.0.3",
+    "ionic2-calendar": "^1.0.1",
     "ionicons": "^7.0.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
