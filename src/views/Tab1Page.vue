@@ -3,10 +3,10 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
+        <vue-cal class="vuecal--blue-theme"></vue-cal>
       </ion-toolbar>
       </ion-header>
-       <vue-cal class="vuecal--blue-theme"></vue-cal>
-    <ion-content :fullscreen="true">
+      <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
     </ion-content>
@@ -26,7 +26,8 @@ import 'vue-cal/dist/vuecal.css'
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #004992;
+  height: 250px;
 }
 
 .vuecal {height: 90vh;}
