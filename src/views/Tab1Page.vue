@@ -6,7 +6,7 @@
         <vue-cal class="vuecal--blue-theme"></vue-cal>
       </ion-toolbar>
       </ion-header>
-   s   <ion-content :fullscreen="true">
+      <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
     </ion-content>
