@@ -18,20 +18,28 @@
 
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import axios from 'axios'
 
-// Read data from local file
-import jsonData from '@/Calendar.json';
+export default {
+  components: {
+    VueCal
+  },
+  data() {
+    return {
+      events: []
+    }
+  },
+  created() {
+    axios.get('./Calendar.json')
+      .then(response => {
+        this.events = response.data.events
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+}
 
-// Add data to the calendar
-jsonData.forEach(item => {
-  const event = {
-    title: item.title,
-    start: new Date(item.date),
-    end: new Date(item.date)
-  };
-  // Add the event to the calendar
-  this.$refs.calendar.addEvent(event);
-});
 </script>
 
 <style>
