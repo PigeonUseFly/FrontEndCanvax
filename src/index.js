@@ -11,48 +11,25 @@ Vue.createApp({
   data: () => ({
     events: [
       {
-        start: '2018-11-19 10:35',
-        end: '2018-11-19 11:30',
-        title: 'Doctor appointment'
+        "title": "Meeting with John",
+        "start_time": "2023-05-01T10:00:00Z",
+        "end_time": "2023-05-01T11:30:00Z",
+        "location": "123 Main St, Anytown, USA",
+        "description": "Discuss upcoming project deadlines and goals."
       },
       {
-        start: '2018-11-19 18:30',
-        end: '2018-11-19 19:15',
-        title: 'Dentist appointment'
+        "title": "Lunch with Sarah",
+        "start_time": "2023-05-02T12:00:00Z",
+        "end_time": "2023-05-02T13:00:00Z",
+        "location": "Cafe Europa, 456 Oak St, Anytown, USA",
+        "description": "Catch up on recent news and developments."
       },
       {
-        start: '2018-11-20 18:30',
-        end: '2018-11-20 20:30',
-        title: 'Crossfit'
-      },
-      {
-        start: '2018-11-21 11:00',
-        end: '2018-11-21 13:00',
-        title: 'Brunch with Jane'
-      },
-      {
-        start: '2018-11-21 19:30',
-        end: '2018-11-21 23:00',
-        title: 'Swimming lesson'
-      },
-      {
-        start: '2019-09-30 19:30',
-        end: '2019-09-30 23:00',
-        title: 'Swimming lesson'
-      },
-      {
-        start: "2018-11-19 12:00",
-        end: "2018-11-19 14:00",
-        title: "LUNCH",
-        class: "lunch",
-        background: true
-      },
-      {
-        start: "2018-11-20 12:00",
-        end: "2018-11-20 14:00",
-        title: "LUNCH",
-        class: "lunch",
-        background: true
+        "title": "Conference Call with Marketing Team",
+        "start_time": "2023-05-03T15:00:00Z",
+        "end_time": "2023-05-03T16:00:00Z",
+        "location": "",
+        "description": "Discuss marketing strategies and campaigns for the upcoming quarter."
       }
     ]
   })
