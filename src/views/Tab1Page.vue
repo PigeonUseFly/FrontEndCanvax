@@ -3,10 +3,9 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :events="events" @ready="fetchEvents" ></vue-cal>
+        <vue-cal class="vuecal--blue-theme"></vue-cal>
       </ion-toolbar>
       </ion-header>
-      <vue-cal class="vuecal--blue-theme" :events="events" @ready="fetchEvents" ></vue-cal>
       <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
@@ -17,6 +16,10 @@
 <script>
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+
+export default {
+  components: { VueCal },
+}
 
 //fetch('src/views/Calendar.json')
 fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
@@ -38,7 +41,7 @@ fetch('src/views/Calendar.json') // Här läser den filen, nästa local host imp
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #004992;
+  color: #8E00FF;
   height: 250px;
 }
 
