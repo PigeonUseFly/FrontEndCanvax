@@ -6,6 +6,7 @@
         <vue-cal class="vuecal--blue-theme" :events="events" @ready="fetchEvents" ></vue-cal>
       </ion-toolbar>
       </ion-header>
+      <vue-cal class="vuecal--blue-theme" :events="events" @ready="fetchEvents" ></vue-cal>
       <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
