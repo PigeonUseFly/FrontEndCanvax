@@ -22,6 +22,9 @@
     </div>
 
     <script>
+
+
+
       new Vue({
         el: '#app',
         data: {
@@ -54,4 +57,28 @@
     
     <a href="https://antoniandre.github.io/vue-cal" target="_blank">Documentation @ //antoniandre.github.io/vue-cal</a>
   </body>
+
+  <script>
+    export default {
+      name: 'MyComponent',
+      data() {
+        return {
+          calendarData: null
+        }
+      },
+      mounted() {
+        fetch('src/views/Calendar.json')
+          .then(response => response.json())
+          .then(data => {
+            this.calendarData = data;
+            // Do something with the data
+          })
+          .catch(error => {
+            console.error(error);
+            // Handle the error
+          });
+      }
+    }
+    </script>
+
 </html>
