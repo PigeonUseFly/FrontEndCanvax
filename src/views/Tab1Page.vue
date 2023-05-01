@@ -22,7 +22,7 @@ export default {
 }
 
 //fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
-fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
+fetch('http://localhost:8080/calendar/something')
   .then(response => response.json())
   .then(data => {
     console.log(data);
