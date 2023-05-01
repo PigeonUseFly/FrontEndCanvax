@@ -33,7 +33,7 @@
         }
       },
       mounted() {
-        fetch('src/views/Calendar.json')
+        fetch('http://localhost:8080/calendar/something')
           .then(response => response.json())
           .then(data => {
             this.calendarData = data;
