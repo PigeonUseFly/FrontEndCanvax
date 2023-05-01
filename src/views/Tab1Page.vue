@@ -21,8 +21,8 @@ export default {
   components: { VueCal },
 }
 
-//fetch('src/views/Calendar.json')
-fetch('http://localhost:8080/calendar/something') // Här läser den filen, nästa local host import
+//fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
+fetch('src/views/Calendar.json') // Här läser den filen, nästa local host import
   .then(response => response.json())
   .then(data => {
     console.log(data);
