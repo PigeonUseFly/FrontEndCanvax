@@ -24,10 +24,20 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/*Filips calender saker */
+
+import VCalendar from 'v-calendar';
+import 'v-calendar/style.css';
+
+/*Filips calender saker ovan*/
+
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
   
 router.isReady().then(() => {
   app.mount('#app');
 });
+
