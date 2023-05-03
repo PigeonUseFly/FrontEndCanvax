@@ -3,7 +3,11 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" 
+        :events="events"
+        :on-event-click="onEventClick">
+      </vue-cal>
+      
       </ion-toolbar>
       </ion-header>
       <ion-content :fullscreen="true">
@@ -39,17 +43,6 @@ onBeforeMount(async () => {
   });
 });
 
-//fetch('src/views/Calendar.json')
-fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.events[0]);
-    // Do something with the data
-  })
-  .catch(error => {
-    console.error(error);
-    // Handle the error
-  });
 
 </script>
 
