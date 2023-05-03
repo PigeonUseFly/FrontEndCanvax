@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
       </ion-toolbar>
       </ion-header>
       <ion-content :fullscreen="true">
@@ -13,19 +13,37 @@
   </ion-page>
 </template>
 
-<script>
+<script setup>
+import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 
-export default {
-  components: { VueCal },
-}
+const events = ref([]);
+
+onBeforeMount(async () => {
+  //TESTKOD
+  fetch('http://localhost:8080/calendar/bajs')
+  .then(response => response.json())
+  .then(data => {
+    data.events.forEach(event => {
+      events.value.push({
+        title: event.summary,
+        start: event.startDate,
+        end: event.endDate
+      });
+    });
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  });
+});
 
 //fetch('src/views/Calendar.json')
 fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+    console.log(data.events[0]);
     // Do something with the data
   })
   .catch(error => {
