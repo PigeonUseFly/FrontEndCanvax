@@ -32,8 +32,6 @@ onBeforeMount(async () => {
         end: event.endDate
       });
     });
-    console.log(events.value);
-    // Do something with the data
   })
   .catch(error => {
     console.error(error);
