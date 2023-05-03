@@ -22,40 +22,23 @@ const events = ref([]);
 
 onBeforeMount(async () => {
   //TESTKOD
-  console.log("Vakna");
-  events.value.push({
-      title: "käften",
-      start: "2023-05-02 08:00",
-      end: "2023-05-02 10:00",
-      content: "lalala",
-      class: "lala"
-    });
-    events.value.push({
-      title: "Lunch",
-      start: "2023-05-03 13:00",
-      end: "2023-05-03 15:00",
-      content: "Här är en massa mög",
-      class: "lala"
-    });
-    //TESTKOD SLUT
-
-    fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.events[0]);
-      // Gör den här skiten i en for-loop
+  fetch('http://localhost:8080/calendar/bajs')
+  .then(response => response.json())
+  .then(data => {
+    data.events.forEach(event => {
       events.value.push({
-        title: data.events[0].summary,
-        start: data.events[0].startDate,
-        end: data.events[0].endDate
+        title: event.summary,
+        start: event.startDate,
+        end: event.endDate
       });
-      console.log(events.value);
-      // Do something with the data
-    })
-    .catch(error => {
-      console.error(error);
-      // Handle the error
     });
+    console.log(events.value);
+    // Do something with the data
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  });
 });
 
 //fetch('src/views/Calendar.json')
