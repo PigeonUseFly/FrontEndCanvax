@@ -4,8 +4,11 @@
       <ion-toolbar>
         <h1> Canvax</h1>
         <vue-cal class="vuecal--blue-theme" 
+        :disable-views="['years', 'year']"
         :events="events"
-        :on-event-click="onEventClick">
+        :on-event-click="onEventClick"
+        editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }"
+        >
       </vue-cal>
       
       </ion-toolbar>
@@ -42,6 +45,7 @@ onBeforeMount(async () => {
     // Handle the error
   });
 });
+
 
 
 </script>
