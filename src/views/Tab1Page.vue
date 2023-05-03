@@ -22,7 +22,7 @@ const events = ref([]);
 
 onBeforeMount(async () => {
   //TESTKOD
-  console.log("käften!");
+  console.log("Vakna");
   events.value.push({
       title: "käften",
       start: "2023-05-02 08:00",
@@ -31,9 +31,9 @@ onBeforeMount(async () => {
       class: "lala"
     });
     events.value.push({
-      title: "fsjal",
-      start: "2023-05-02 11:00",
-      end: "2023-05-02 12:00",
+      title: "Lunch",
+      start: "2023-05-03 13:00",
+      end: "2023-05-03 15:00",
       content: "Här är en massa mög",
       class: "lala"
     });
