@@ -46,3 +46,18 @@ const onEventClick = (event, index) => {
 };
 
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #8E00FF;
+  height: 250px;
+}
+
+.vuecal {
+  height: 90vh;
+}
+</style>
