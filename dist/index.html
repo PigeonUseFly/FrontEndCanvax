@@ -1,84 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <vue-cal 
-         vuecal--blue-theme 
-         selected-date="2023-04-28" 
-         :time-from="10 * 60" 
-         hide-weekends
-         :events="events"
-         editable-events
-         events-count-on-year-view
-         events-on-month-view="short"
-      ></vue-cal>
-    </div>
 
-    <script>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+</head>
 
+<body>
+  <div id="app">
+    <vue-cal vuecal--blue-theme selected-date="2023-04-28" :time-from="10 * 60" hide-weekends :events="events"
+      editable-events events-count-on-year-view events-on-month-view="short"></vue-cal>
+  </div>
 
+  <a href="https://antoniandre.github.io/vue-cal" target="_blank">Documentation @ //antoniandre.github.io/vue-cal</a>
+</body>
 
-      new Vue({
-        el: '#app',
-        data: {
-          events: [
-          {
-        "title": "Meeting with John",
-        "start_time": "2023-05-01T10:00:00Z",
-        "end_time": "2023-05-01T11:30:00Z",
-        "location": "123 Main St, Anytown, USA",
-        "description": "Discuss upcoming project deadlines and goals."
-      },
-      {
-        "title": "Lunch with Sarah",
-        "start_time": "2023-05-02T12:00:00Z",
-        "end_time": "2023-05-02T13:00:00Z",
-        "location": "Cafe Europa, 456 Oak St, Anytown, USA",
-        "description": "Catch up on recent news and developments."
-      },
-      {
-        "title": "Conference Call with Marketing Team",
-        "start_time": "2023-05-03T15:00:00Z",
-        "end_time": "2023-05-03T16:00:00Z",
-        "location": "",
-        "description": "Discuss marketing strategies and campaigns for the upcoming quarter."
+<script>
+  export default {
+    name: 'MyComponent',
+    data() {
+      return {
+        calendarData: null
       }
-          ]
-        }
-      })
-    </script>
-    
-    <a href="https://antoniandre.github.io/vue-cal" target="_blank">Documentation @ //antoniandre.github.io/vue-cal</a>
-  </body>
-
-  <script>
-    export default {
-      name: 'MyComponent',
-      data() {
-        return {
-          calendarData: null
-        }
-      },
-      mounted() {
-        fetch('src/views/Calendar.json')
-          .then(response => response.json())
-          .then(data => {
-            this.calendarData = data;
-            // Do something with the data
-          })
-          .catch(error => {
-            console.error(error);
-            // Handle the error
-          });
-      }
+    },
+    mounted() {
+      fetch('src/views/Calendar.json')
+        .then(response => response.json())
+        .then(data => {
+          this.calendarData = data;
+          // Do something with the data
+        })
+        .catch(error => {
+          console.error(error);
+          // Handle the error
+        });
     }
-    </script>
+  }
+</script>
 
 </html>
