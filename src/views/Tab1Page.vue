@@ -5,7 +5,9 @@
         <h1> Canvax</h1>
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
-          editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }">
+          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }"
+          @event-long-press="onDeleteEvent"
+        >
         </vue-cal>
       </ion-toolbar>
     </ion-header>
@@ -45,22 +47,9 @@ const onEventClick = (event, index) => {
   console.log("Clicked event id in calender:", event.index);
 };
 
-// Method to delete an event from the calendar
-const onDeleteEvent = (event) => {
-  const index = event.index;
-  fetch(`http://localhost:8080/calendar/${index}`, {
-    method: 'DELETE'
-  })
-    .then(response => {
-      if (response.ok) {
-        console.log('Event deleted successfully');
-      } else {
-        console.error('Error deleting event');
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
+const onDeleteEvent = (event, index) => {
+  console.log("Yoooouuu long pressed");
+  events.value.splice(index, 1);
 };
 
 </script>
