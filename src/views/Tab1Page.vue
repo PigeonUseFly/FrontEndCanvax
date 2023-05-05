@@ -45,6 +45,24 @@ const onEventClick = (event, index) => {
   console.log("Clicked event id in calender:", event.index);
 };
 
+// Method to delete an event from the calendar
+const onDeleteEvent = (event) => {
+  const index = event.index;
+  fetch(`http://localhost:8080/calendar/${index}`, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Event deleted successfully');
+      } else {
+        console.error('Error deleting event');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
 </script>
 
 <style>
