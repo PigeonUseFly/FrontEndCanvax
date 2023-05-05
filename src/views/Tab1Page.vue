@@ -3,14 +3,10 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
-          :on-event-click="onEventClick"
-          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
-          @event-delete="onDeleteEvent">
-        </vue-cal>
+        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
       </ion-toolbar>
-    </ion-header>
-    <ion-content :fullscreen="true">
+      </ion-header>
+      <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
     </ion-content>
@@ -25,47 +21,35 @@ import 'vue-cal/dist/vuecal.css'
 const events = ref([]);
 
 onBeforeMount(async () => {
-  fetch('http://localhost:8080/calender/bajs')
-    .then(response => response.json())
-    .then(data => {
-      const values = Object.values(data);
-      events.value = values.map(event => {
-        return {
-          id: event.id,
-          title: event.summary,
-          start: event.startDate,
-          end: event.endDate
-        };
+  //TESTKOD
+  fetch('http://localhost:8080/calendar/bajs')
+  .then(response => response.json())
+  .then(data => {
+    data.events.forEach(event => {
+      events.value.push({
+        title: event.summary,
+        start: event.startDate,
+        end: event.endDate
       });
-      console.log();
-    })
-    .catch(error => {
-      console.error(error);
     });
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  });
 });
 
-const onEventClick = function (event) {
-  console.log("Event ID:", event.id);
-
-};
-
-const onDeleteEvent = function (event) {
-  console.log("här jävlar");
-  console.log(event);
-  fetch("http://localhost:8080/events/" + event.id, {
-    method:"DELETE"
-  })
+//fetch('src/views/Calendar.json')
+fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
   .then(response => response.json())
-    .then(data => {
-      console.log('Event deleted:', data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
-
-};
-
+  .then(data => {
+    console.log(data.events[0]);
+    // Do something with the data
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle the error
+  });
 
 </script>
 
@@ -79,7 +63,6 @@ const onDeleteEvent = function (event) {
   height: 250px;
 }
 
-.vuecal {
-  height: 90vh;
-}
+.vuecal {height: 90vh;}
 </style>
+
