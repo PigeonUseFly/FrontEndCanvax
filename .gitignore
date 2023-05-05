@@ -369,4 +369,3 @@ ehthumbs_vista.db
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,macos,vue,ionic3,jetbrains,intellij
-node_modules
