@@ -34,6 +34,7 @@ onBeforeMount(async () => {
   .then(data => {
     data.events.forEach(event => {
       events.value.push({
+        index: event.index,
         title: event.summary,
         start: event.startDate,
         end: event.endDate
@@ -47,8 +48,7 @@ onBeforeMount(async () => {
 });
 
 const onEventClick = (event, index) => {
-  console.log("Clicked event index:", index);
-  console.log("Clicked event id:", event.id);
+console.log("Clicked event id:", event.index);
 };
 
 
