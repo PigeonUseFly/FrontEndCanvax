@@ -51,9 +51,6 @@ const onEventClick = (event, index) => {
 console.log("Clicked event id:", event.index);
 };
 
-
-
-
 </script>
 
 <style>
