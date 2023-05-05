@@ -46,26 +46,11 @@ onBeforeMount(async () => {
   });
 });
 
-const onEventClick = (event) => {
-  
+const onEventClick = (event, index) => {
+  console.log("Clicked event index:", index);
+  console.log("Clicked event id:", event.id);
 };
 
-const eventId = '2'; // the ID of the event to remove
-
-fetch(`http://localhost:8080/calendar/bajs/${eventId}`, {
-  method: 'DELETE'
-})
-.then(response => {
-  if (response.ok) {
-    // the event was successfully removed
-    console.log('Event removed successfully.');
-  } else {
-    console.error(`Failed to remove event with ID ${eventId}.`);
-  }
-})
-.catch(error => {
-  console.error(`Failed to remove event with ID ${eventId}: ${error.message}`);
-});
 
 
 
