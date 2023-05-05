@@ -3,7 +3,14 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" 
+        :disable-views="['years', 'year']"
+        :events="events"
+        :on-event-click="onEventClick"
+        editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }"
+        >
+      </vue-cal>
+      
       </ion-toolbar>
       </ion-header>
       <ion-content :fullscreen="true">
@@ -27,6 +34,7 @@ onBeforeMount(async () => {
   .then(data => {
     data.events.forEach(event => {
       events.value.push({
+        index: event.index,
         title: event.summary,
         start: event.startDate,
         end: event.endDate
@@ -39,17 +47,9 @@ onBeforeMount(async () => {
   });
 });
 
-//fetch('src/views/Calendar.json')
-fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.events[0]);
-    // Do something with the data
-  })
-  .catch(error => {
-    console.error(error);
-    // Handle the error
-  });
+const onEventClick = (event, index) => {
+console.log("Clicked event id:", event.index);
+};
 
 </script>
 
