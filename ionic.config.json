@@ -1,4 +1,9 @@
 {
+  "name": "New Ionic App",
+  "integrations": {},
+  "type": "vue"
+}
+{
   "name": "ionic-app-base",
   "integrations": {},
   "type": "vue-vite"
