@@ -6,8 +6,7 @@
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }"
-          @cell-dblclick="onDeleteEvent"
-        >
+          @keyup.delete="onDeleteEvent">
         </vue-cal>
       </ion-toolbar>
     </ion-header>
@@ -44,14 +43,14 @@ onBeforeMount(async () => {
 });
 
 const onDeleteEvent = (event, index) => {
-  console.log("You dubbelclicked to delete:" , event.index);
-  events.value.splice(index, 1);
+  console.log("Delete key pressed");
 };
 
-//Method to return the index of the calendar entry tapped in the app
 const onEventClick = (event, index) => {
-  console.log("Clicked event id in calender:", event.index);
+  console.log("Index:", event.index);
 };
+
+
 
 </script>
 
