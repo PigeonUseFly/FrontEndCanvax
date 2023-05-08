@@ -5,7 +5,7 @@
         <h1> Canvax</h1>
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
-          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: false }"
+          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           @keyup.delete="onDeleteEvent">
         </vue-cal>
       </ion-toolbar>
@@ -36,19 +36,34 @@ onBeforeMount(async () => {
           end: event.endDate
         });
       });
+      console.log('Events:', events.value); // log events array
     })
     .catch(error => {
       console.error(error);
     });
 });
 
-const onDeleteEvent = (event, index) => {
-  console.log("Delete key pressed");
-};
 
 const onEventClick = (event, index) => {
-  console.log("Index:", event.index);
+  console.log("Index:", index);
 };
+
+const onDeleteEvent = (index) => {
+  console.log("Delete key pressed");
+  const event = events.value[index]; // get event object from events array
+  events.value.splice(index, 1); // remove event from events array
+  fetch(`http://localhost:8080/calendar/remove-element?index=${event.index}`, {
+    method: 'DELETE'
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Event deleted:', data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
 
 
 
