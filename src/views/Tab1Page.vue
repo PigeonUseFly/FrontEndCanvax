@@ -6,7 +6,7 @@
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
-          @keyup.delete="onDeleteEvent">
+          @event-delete="onDeleteEvent">
         </vue-cal>
       </ion-toolbar>
     </ion-header>
@@ -25,46 +25,40 @@ import 'vue-cal/dist/vuecal.css'
 const events = ref([]);
 //Method to load info before the web page is displayed
 onBeforeMount(async () => {
-  fetch('http://localhost:8080/calendar/bajs')
+  fetch('http://localhost:8080/events')
     .then(response => response.json())
     .then(data => {
       data.events.forEach(event => {
         events.value.push({
-          index: event.index,
+          id: event.id,
           title: event.summary,
           start: event.startDate,
           end: event.endDate
         });
       });
-      console.log('Events:', events.value); // log events array
+  
     })
     .catch(error => {
       console.error(error);
     });
 });
 
-
-const onEventClick = (event, index) => {
-  console.log("Index:", index);
-};
-
-const onDeleteEvent = (index) => {
-  console.log("Delete key pressed");
-  const event = events.value[index]; // get event object from events array
-  events.value.splice(index, 1); // remove event from events array
-  fetch(`http://localhost:8080/calendar/remove-element?index=${event.index}`, {
-    method: 'DELETE'
+const onDeleteEvent = function (event) {
+  console.log("här jävlar");
+  console.log(event);
+  fetch("http://localhost:8080/events/" + event.id, {
+    method:"DELETE"
   })
-    .then(response => response.json())
+  .then(response => response.json())
     .then(data => {
       console.log('Event deleted:', data);
     })
     .catch(error => {
       console.error(error);
     });
+
+
 };
-
-
 
 
 </script>
