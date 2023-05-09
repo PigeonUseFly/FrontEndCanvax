@@ -64,7 +64,7 @@ const onDeleteEvent = function (event) {
       console.error(error);
     });
 
-
+/*Salta nötter*/
 };
 
 
