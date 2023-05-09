@@ -23,25 +23,32 @@ import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 
 const events = ref([]);
-//Method to load info before the web page is displayed
+
 onBeforeMount(async () => {
-  fetch('http://localhost:8080/events')
+  fetch('http://localhost:8080/calender/bajs')
     .then(response => response.json())
     .then(data => {
-      data.events.forEach(event => {
-        events.value.push({
+      const values = Object.values(data);
+      events.value = values.map(event => {
+        return {
           id: event.id,
           title: event.summary,
           start: event.startDate,
           end: event.endDate
-        });
+        };
       });
-  
+      console.log();
     })
     .catch(error => {
       console.error(error);
     });
 });
+
+const onEventClick = function (event) {
+  console.log("Event ID:", event.id);
+  // Do something with the ID here
+};
+
 
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
