@@ -25,7 +25,7 @@ import 'vue-cal/dist/vuecal.css'
 const events = ref([]);
 
 onBeforeMount(async () => {
-  fetch('http://localhost:8080/calender/bajs')
+  fetch('http://localhost:8080/events')
     .then(response => response.json())
     .then(data => {
       const values = Object.values(data);
@@ -53,7 +53,7 @@ const onEventClick = function (event) {
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
   console.log(event);
-  fetch("http://localhost:8080/events/" + event.id, {
+  fetch("http://localhost:8080/events/{ event.id}" + event.id, {
     method:"DELETE"
   })
   .then(response => response.json())
