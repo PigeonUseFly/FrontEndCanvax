@@ -4,6 +4,12 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      external: ["@stencil/core/internal/client"]
+    }
+  },
+  
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
