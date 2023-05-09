@@ -2,11 +2,16 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <h1> Canvax</h1>
+        <button @click="CreationEvent" style="float: right; margin-right: 10px; font-size: 30px; padding: 10px 20px;">
+  Add event
+</button>
+
+    <h1> Canvax</h1>
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
-          @event-delete="onDeleteEvent">
+          @event-delete="onDeleteEvent"
+          :drag-to-create-threshold="15">
         </vue-cal>
       </ion-toolbar>
     </ion-header>
