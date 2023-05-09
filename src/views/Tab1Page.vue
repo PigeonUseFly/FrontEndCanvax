@@ -5,17 +5,18 @@
         <button @click="CreationEvent" style="float: right; margin-right: 10px; font-size: 30px; padding: 10px 20px;">
   Add event
 </button>
-
-    <h1> Canvax</h1>
+<h1> Canvax</h1>
+</ion-toolbar>
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           @event-delete="onDeleteEvent"
           :drag-to-create-threshold="15">
         </vue-cal>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content :fullscreen="true">
+
+        
+   </ion-header>
+   <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
     </ion-content>
@@ -54,6 +55,11 @@ const onEventClick = function (event) {
   // Do something with the ID here
 };
 
+const CreationEvent = function (event) {
+  console.log("You clicked");
+  // Do something with the ID here
+};
+
 
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
@@ -72,7 +78,7 @@ const onDeleteEvent = function (event) {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #8E00FF;
+  color: #0e0f0f;
   height: 250px;
 }
 
