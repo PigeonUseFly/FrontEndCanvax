@@ -9,8 +9,11 @@
   :on-event-click="onEventClick" @event-delete="onDeleteEvent"
   :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
   :on-event-create="edit"
-  :drag-to-create-threshold="15"
->
+  
+  
+  
+  
+  >
 </vue-cal>
     </ion-header>
    <ion-content :fullscreen="true">
@@ -26,9 +29,6 @@ import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 
 const events = ref([]);
-
-
-
 
 
 onBeforeMount(async () => {
@@ -75,7 +75,9 @@ const onDeleteEvent = function (event) {
     method: "DELETE"
   });
 };
+ /* TEST */
 
+ /* TEST */
 
 </script>
 
