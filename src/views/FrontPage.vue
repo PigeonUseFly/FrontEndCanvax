@@ -1,7 +1,7 @@
 <template>
     <div class="front-page">
       <h1>Canvax</h1>
-      <button @click="$router.push('/Tab1')">View Schedule</button>
+      <button @click="$router.push('/tabs/tab1')">View Schedule</button>
       <button>Other Button</button>
     </div>
   </template>
