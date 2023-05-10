@@ -60,6 +60,7 @@ const CreationEvent = function (event) {
   // Do something with the ID here
 };
 
+/*salta nötter*/
 
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
