@@ -2,24 +2,19 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <button @click="CreationEvent" style="float: right; margin-right: 10px; font-size: 30px; padding: 10px 20px;">
-  Add event
-</button>
-<h1> Canvax</h1>
-</ion-toolbar>
-        <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
-          :on-event-click="onEventClick"
-          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
-          @event-delete="onDeleteEvent"
-          :drag-to-create-threshold="15">
-        </vue-cal>
-
-        
-   </ion-header>
-   <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-      </ion-header>
-    </ion-content>
+        <button @click="CreationEvent" style="float: right; margin-right: 10px; font-size: 20px; padding: 10px 20px;">Add
+          event
+        </button>
+        <h1> Canvax</h1>
+      </ion-toolbar>
+      <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
+        :on-event-click="onEventClick"
+        :editable-events="{ title: true, drag: false, resize: true, delete: true, create: true }"
+        @event-delete="onDeleteEvent" 
+        :on-event-create="edit"
+        >
+      </vue-cal>
+    </ion-header>
   </ion-page>
 </template>
 
@@ -55,18 +50,29 @@ const onEventClick = function (event) {
   // Do something with the ID here
 };
 
-const CreationEvent = function (event) {
-  console.log("You clicked");
+const edit = function (event) {
+  console.log("you want to edit edit");
   // Do something with the ID here
 };
 
-/*salta nötter*/
+const CreationEvent = function () {
+  console.log("Create event:");
+  const newEvent = {
+    id: events.value.length + 1, // generate new id
+    title: '',
+    start: '',
+    end: ''
+  };
+  // open a dialog or form for the user to input event details
+  // set the values of newEvent.title, newEvent.start, and newEvent.end
+  events.value.push(newEvent);
+};
 
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
   console.log(event);
   fetch("http://localhost:8080/events/" + event.id, {
-    method:"DELETE"
+    method: "DELETE"
   });
 };
 
