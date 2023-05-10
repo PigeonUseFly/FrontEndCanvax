@@ -8,11 +8,9 @@
         <h1> Canvax</h1>
       </ion-toolbar>
       <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
-        :on-event-click="onEventClick"
-        :editable-events="{ title: true, drag: false, resize: true, delete: true, create: true }"
-        @event-delete="onDeleteEvent" 
-        :on-event-create="edit"
-        >
+        :on-event-click="onEventClick" @event-delete="onDeleteEvent"
+        :editable-events="{ title: false, drag: false, resize: true, delete: true, create: true }"
+        :drag-to-create-threshold="15" :drag-to-create-event="true" :on-event-create="edit">
       </vue-cal>
     </ion-header>
   </ion-page>
@@ -51,7 +49,7 @@ const onEventClick = function (event) {
 };
 
 const edit = function (event) {
-  console.log("you want to edit edit");
+  console.log("you want to create an event with drag");
   // Do something with the ID here
 };
 
