@@ -8,12 +8,7 @@
       <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
   :on-event-click="onEventClick" @event-delete="onDeleteEvent"
   :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
-  :on-event-create="edit"
-  
-  
-  
-  
-  >
+  :on-event-create="edit">
 </vue-cal>
     </ion-header>
    <ion-content :fullscreen="true">
@@ -76,6 +71,7 @@ const onDeleteEvent = function (event) {
   });
 };
  /* TEST */
+
 
  /* TEST */
 
