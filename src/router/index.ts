@@ -1,14 +1,9 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
-import { IonDatetime } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+
+import TabsPage from '@/views/TabsPage.vue';
+import FrontPage from '@/views/FrontPage.vue'; // import FrontPage component
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    redirect: '/tabs/tab1'
-  },
   {
     path: '/tabs/',
     component: TabsPage,
@@ -28,16 +23,18 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3Page.vue')
+      },
+      {
+        path: 'FrontPage',
+        component: FrontPage
       }
     ]
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
-})
+});
 
-export default router
-
-
+export default router;
