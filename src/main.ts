@@ -1,8 +1,6 @@
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { createApp } from 'vue'
 import App from './App.vue'
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
 import router from './router';
 import { IonicVue } from '@ionic/vue';
 
@@ -37,9 +35,6 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
-
-  app.component('VueCal', VueCal)
-
   
   
 router.isReady().then(() => {
