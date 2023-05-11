@@ -2,13 +2,19 @@
   <ion-app>
     <ion-header>
       <ion-toolbar>
-        <ion-title>My app</ion-title>
+        <ion-title>My App</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
-      <ion-router-outlet></ion-router-outlet>
+      <div class="container">
+        <h1>Welcome to My App!</h1>
+        <p>Click the button below to view our schedule:</p>
+        <ion-button @click="goToSchedule" expand="block">View Schedule</ion-button>
+      </div>
     </ion-content>
+
+    <ion-router-outlet />
   </ion-app>
 </template>
 
@@ -16,8 +22,6 @@
 import { IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
-
-import FrontPage from '@/views/FrontPage.vue';
 
 const App = defineComponent({
   components: {
@@ -28,18 +32,13 @@ const App = defineComponent({
     IonTitle,
     IonContent,
     IonButton,
-    FrontPage,
   },
   setup() {
-    
     const router = useRouter();
 
     function goToSchedule() {
-      router.push('tabs/Tab1Page');
+      router.push('/FrontPage');
     }
-   
-    // navigate to the FrontPage component when the app starts
-    
 
     return {
       goToSchedule,
@@ -47,6 +46,7 @@ const App = defineComponent({
   },
 });
 </script>
+
 
 <style scoped>
 .container {

@@ -1,17 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import TabsPage from '@/views/TabsPage.vue';
-import FrontPage from '@/views/FrontPage.vue'; // import FrontPage component
+import Tab1Page from '@/views/Tab1Page.vue';
+import FrontPage from '@/views/FrontPage.vue'; // import the FrontPage component
+import { defineComponent } from 'vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/FrontPage' // set the default route to FrontPage
+    component: FrontPage // set the FrontPage component as the root path
   },
-  {
-    path: '/tabs/FrontPage', // update path to match the one in the App component
-    component: FrontPage // set the FrontPage component as the view for /frontpage
-  },
-
   {
     path: '/tabs/',
     component: TabsPage,
@@ -22,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        component: Tab1Page,
       },
       {
         path: 'tab2',
