@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import TabsPage from '@/views/TabsPage.vue';
 import Tab1Page from '@/views/Tab1Page.vue';
+import FrontPage from '@components/FrontPage.vue';
 import { defineComponent } from 'vue';
 
 const routes: Array<RouteRecordRaw> = [

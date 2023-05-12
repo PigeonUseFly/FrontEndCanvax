@@ -1,4 +1,4 @@
-<template>
+template>
   <ion-app>
     <ion-header>
       <ion-toolbar>
@@ -44,5 +44,3 @@ export default defineComponent({
   },
 });
 </script>
-
-
