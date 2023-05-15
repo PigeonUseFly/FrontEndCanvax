@@ -1,7 +1,7 @@
 <template>
     <div class="front-page">
       <h1>Canvax</h1>
-      <button @click="$router.push('/schedule')">View Schedule</button>
+      <button @click="$router.push('tabs/tab1')">View Schedule</button>
       <button>Other Button</button>
     </div>
   </template>
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #000000;
   }
 
   h1 {
@@ -26,7 +26,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: #007bff;
-    color: #fff;
+    color: #050505;
     margin-bottom: 1rem;
     cursor: pointer;
   }
