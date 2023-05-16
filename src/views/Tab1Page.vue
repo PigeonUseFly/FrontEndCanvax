@@ -25,7 +25,7 @@ import 'vue-cal/dist/vuecal.css'
 
 const events = ref([]);
 
-
+/*This function fetch the calender events from back-end to present in the browser*/
 onBeforeMount(async () => {
   fetch('http://localhost:8080/events')
     .then(response => response.json())
@@ -46,23 +46,38 @@ onBeforeMount(async () => {
     });
 });
 
+/**
+ * this function returns the id of the event when pressed in the browser
+ * @param {*} event 
+ */
 const onEventClick = function (event) {
   console.log("Event ID:", event.id);
 
 };
 
+
+/**
+ * this function is NOT done, when it is done it is going edit an event and return it to back-end
+ * @param {*} event 
+ */
 const edit = function (event) {
   console.log("you want to create an event with drag");
  
   
 };
-
+/**
+ * this function is NOT done, it is for creating new events in front-end to POST to back-end.
+ * @param {*} event 
+ */
 const CreationEvent = function (event) {
   console.log("Create event:");
   showEventCreationDialog.value = true;
 };
 
-
+/**
+ * this function delete a event in the calendar and send the id of the event to back-end to delete it permanently
+ * @param {*} event 
+ */
 const onDeleteEvent = function (event) {
   console.log("här jävlar");
   console.log(event);
