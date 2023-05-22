@@ -22,6 +22,9 @@ import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 
+const goBackToFrontPage = function() {
+  this.$router.go(-1); 
+};
 const events = ref([]);
 
 onBeforeMount(async () => {
