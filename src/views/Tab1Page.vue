@@ -1,5 +1,3 @@
-Tab1page:
-
 <template>
   <ion-page>
     <ion-header>
@@ -19,6 +17,7 @@ Tab1page:
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import { getCurrentInstance } from '@vue/runtime-core';
 
 const events = ref([]);
 
@@ -39,6 +38,14 @@ onBeforeMount(async () => {
     console.error(error);
     // Handle the error
   });
+
+  const { proxy } = getCurrentInstance();
+
+  window.addEventListener('popstate', () => {
+    if (proxy.$route.path === '/tabs/tab1') {
+      proxy.$router.push('/front-page')
+    }
+  })
 });
 
 //fetch('src/views/Calendar.json')
@@ -54,6 +61,23 @@ fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa lo
   });
 
 </script>
+
+<script>
+export default {
+  name: 'Tab1Page',
+  methods: {
+    beforeRouteLeave(to, from, next) {
+  if (from.name === 'FrontPage') {
+    this.$router.replace('/');
+    next(false);
+  } else {
+    next();
+  }
+},
+  },
+};
+</script>
+
 
 <style>
 #app {

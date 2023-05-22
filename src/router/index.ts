@@ -9,6 +9,7 @@ import Tab3Page from '../views/Tab3Page.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'FrontPage',
     redirect: '/front-page',
   },
   {
