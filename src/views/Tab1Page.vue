@@ -3,10 +3,14 @@
     <ion-header>
       <ion-toolbar>
         <h1> Canvax</h1>
-        <vue-cal class="vuecal--blue-theme" :events="events"></vue-cal>
+        <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
+          :on-event-click="onEventClick"
+          :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
+          @event-delete="onDeleteEvent">
+        </vue-cal>
       </ion-toolbar>
-      </ion-header>
-      <ion-content :fullscreen="true">
+    </ion-header>
+    <ion-content :fullscreen="true">
       <ion-header collapse="condense">
       </ion-header>
     </ion-content>
@@ -17,67 +21,54 @@
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
-import { getCurrentInstance } from '@vue/runtime-core';
 
 const events = ref([]);
 
 onBeforeMount(async () => {
-  //TESTKOD
-  fetch('http://localhost:8080/calendar/bajs')
-  .then(response => response.json())
-  .then(data => {
-    data.events.forEach(event => {
-      events.value.push({
-        title: event.summary,
-        start: event.startDate,
-        end: event.endDate
+  fetch('http://localhost:8080/events')
+    .then(response => response.json())
+    .then(data => {
+      const values = Object.values(data);
+      events.value = values.map(event => {
+        return {
+          id: event.id,
+          title: event.summary,
+          start: event.startDate,
+          end: event.endDate
+        };
       });
+      console.log();
+    })
+    .catch(error => {
+      console.error(error);
     });
-  })
-  .catch(error => {
-    console.error(error);
-    // Handle the error
-  });
-
-  const { proxy } = getCurrentInstance();
-
-  window.addEventListener('popstate', () => {
-    if (proxy.$route.path === '/tabs/tab1') {
-      proxy.$router.push('/front-page')
-    }
-  })
 });
 
-//fetch('src/views/Calendar.json')
-fetch('http://localhost:8080/calendar/bajs') // Här läser den filen, nästa local host import
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.events[0]);
-    // Do something with the data
-  })
-  .catch(error => {
-    console.error(error);
-    // Handle the error
-  });
-
-</script>
-
-<script>
-export default {
-  name: 'Tab1Page',
-  methods: {
-    beforeRouteLeave(to, from, next) {
-  if (from.name === 'FrontPage') {
-    this.$router.replace('/');
-    next(false);
-  } else {
-    next();
-  }
-},
-  },
+const onEventClick = function (event) {
+  console.log("Event ID:", event.id);
+  // Do something with the ID here
 };
-</script>
 
+
+const onDeleteEvent = function (event) {
+  console.log("här jävlar");
+  console.log(event);
+  fetch("http://localhost:8080/events/" + event.id, {
+    method:"DELETE"
+  })
+  .then(response => response.json())
+    .then(data => {
+      console.log('Event deleted:', data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+/*Salta nötter*/
+};
+
+
+</script>
 
 <style>
 #app {
@@ -89,5 +80,7 @@ export default {
   height: 250px;
 }
 
-.vuecal {height: 90vh;}
+.vuecal {
+  height: 90vh;
+}
 </style>
