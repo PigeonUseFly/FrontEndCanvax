@@ -1,3 +1,13 @@
+/*Filips dialog saker*/
+
+import Vue from 'vue';
+import VuejsDialog from 'vuejs-dialog';
+import 'vuejs-dialog/dist/vuejs-dialog.min.css';
+import 'vuejs-dialog/dist/vuejs-dialog-mixin.min.js';
+
+/*Filips dialog saker ovan*/
+
+
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -31,11 +41,14 @@ import 'v-calendar/style.css';
 /*Filips calender saker ovan*/
 
 
+
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
-  
+  .use(Vuetify)
+
   
 router.isReady().then(() => {
   app.mount('#app');
