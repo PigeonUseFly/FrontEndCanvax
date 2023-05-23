@@ -32,7 +32,8 @@ import 'v-calendar/style.css';
 
 /*Filips dialog mys */
 
-import { defineCustomElements as defineVuejsDialog } from 'vuejs-dialog';
+
+
 
 /*Filips dialog mys */
 
@@ -41,7 +42,7 @@ const app = createApp(App)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
 
-  defineVuejsDialog(app);
+ 
   
 router.isReady().then(() => {
   app.mount('#app');
