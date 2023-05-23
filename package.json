@@ -26,7 +26,8 @@
     "vue": "^3.2.47",
     "vue-cal": "^4.8.1",
     "vue-router": "^4.1.6",
-    "vuejs-dialog": "^1.4.2"
+    "vuejs-dialog": "^1.4.2",
+    "vuetify-use-dialog": "^0.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
