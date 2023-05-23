@@ -21,10 +21,10 @@
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import ExploreContainer from '@/components/ExploreContainer.vue';
 
-const goBackToFrontPage = function() {
-  this.$router.go(-1); 
-};
+
 const events = ref([]);
 
 onBeforeMount(async () => {

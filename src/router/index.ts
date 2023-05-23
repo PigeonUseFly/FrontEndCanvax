@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
-import { RouteRecordRaw } from 'vue-router'
 import TabsPage from '../views/TabsPage.vue'
 import FrontPage from '../views/FrontPage.vue'
 import Tab1Page from '../views/Tab1Page.vue'
 import Tab2Page from '../views/Tab2Page.vue'
 import Tab3Page from '../views/Tab3Page.vue'
 
-const routes: Array<RouteRecordRaw> = [
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
   {
     path: '/',
     name: 'FrontPage',
@@ -40,9 +41,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 ]
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+
 })
 
 export default router
