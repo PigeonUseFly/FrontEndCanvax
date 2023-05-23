@@ -30,12 +30,18 @@ import 'v-calendar/style.css';
 
 /*Filips calender saker ovan*/
 
+/*Filips dialog mys */
+
+import { defineCustomElements as defineVuejsDialog } from 'vuejs-dialog';
+
+/*Filips dialog mys */
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
-  
+
+  defineVuejsDialog(app);
   
 router.isReady().then(() => {
   app.mount('#app');
