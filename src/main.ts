@@ -32,7 +32,8 @@ import 'v-calendar/style.css';
 
 /*Filips dialog mys */
 
-
+import { createVuetify } from 'vuetify'
+import VuetifyUseDialog from 'vuetify-use-dialog'
 
 
 /*Filips dialog mys */
@@ -42,6 +43,13 @@ const app = createApp(App)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
 
+
+  const vuetify = createVuetify() // Filip la till denna rad och tog bort ;
+  
+  app.use(vuetify) // Filip la till denna rad och tog bort ;
+  app.use(VuetifyUseDialog) // Filip la till denna rad och tog bort ;
+  
+  app.mount('#app')
  
   
 router.isReady().then(() => {
