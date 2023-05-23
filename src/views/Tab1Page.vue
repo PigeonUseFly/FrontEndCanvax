@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <h1> Canvax</h1>
+        <h1>Canvax</h1>
         <vue-cal class="vuecal--blue-theme" :disable-views="['years', 'year']" :events="events"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
@@ -11,31 +11,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-      </ion-header>
-      <v-dialog v-model="showDialog">
-  <v-card>
-    <v-card-title>
-      <v-icon>{{ selectedEvent.icon }}</v-icon>
-      <span>{{ selectedEvent.title }}</span>
-      <v-spacer/>
-      <strong>{{ selectedEvent.start && selectedEvent.start.format('DD/MM/YYYY') }}</strong>
-    </v-card-title>
-    <v-card-text>
-      <p v-html="selectedEvent.contentFull"/>
-      <strong>Event details:</strong>
-      <ul>
-        <li>Event starts at: {{ selectedEvent.start && selectedEvent.start.formatTime() }}</li>
-        <li>Event ends at: {{ selectedEvent.end && selectedEvent.end.formatTime() }}</li>
-      </ul>
-    </v-card-text>
-  </v-card>
-</v-dialog>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup>
+import { VDialog, VCard, VCardTitle, VCardText, VSpacer, VIcon } from 'vuetify/lib';
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
@@ -63,15 +44,6 @@ onBeforeMount(async () => {
 });
 
 
-  onEventClick (event, e) {
-    this.selectedEvent = event
-    this.showDialog = true
-
-    // Prevent navigating to narrower view (default vue-cal behavior).
-    e.stopPropagation()
-  }
-
-
 const onEventClick = function (event) {
   console.log("Event ID:", event.id);
   // Do something with the ID here
@@ -88,6 +60,8 @@ const onDeleteEvent = function (event) {
 
 
 </script>
+
+
 
 <style>
 #app {
