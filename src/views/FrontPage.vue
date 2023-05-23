@@ -6,6 +6,10 @@
     </div>
   </template>
   
+  <script setup>
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import ExploreContainer from '@/components/ExploreContainer.vue';
+</script>
   <style scoped>
   .front-page {
     display: flex;
