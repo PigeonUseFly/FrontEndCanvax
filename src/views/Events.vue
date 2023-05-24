@@ -20,7 +20,7 @@
       <ion-input ref="endDateInput" label="Ending date: " placeholder="Enter date"></ion-input>
     </ion-item>
 
-    <ion-button @key-up="passValuesToCreationEvent">Create Event</ion-button>
+    <ion-button @onEventClick="passValuesToCreationEvent">Create Event</ion-button>
   </ion-list>
 </template>
 
@@ -32,6 +32,7 @@
     components: { IonInput, IonItem, IonList },
     methods: {
       passValuesToCreationEvent() {
+        console.log('kommer jag hit?')
         const id = this.$refs.idInput.value;
         const title = this.$refs.titleInput.value;
         const startDate = this.$refs.startDateInput.value;
