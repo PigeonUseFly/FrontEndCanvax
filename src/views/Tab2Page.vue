@@ -5,20 +5,22 @@
     </ion-item>
 
     <ion-item>
-      <ion-input label="ID: " placeholder="Enter ID"></ion-input>
+      <ion-input ref="idInput" label="ID: " placeholder="Enter ID"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Title:" placeholder="Enter event title"></ion-input>
+      <ion-input ref="titleInput" label="Title:" placeholder="Enter event title"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Starting date: " placeholder="Enter date"></ion-input>
+      <ion-input ref="startDateInput" label="Starting date: " placeholder="Enter date"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Ending date: " placeholder="Enter date"></ion-input>
+      <ion-input ref="endDateInput" label="Ending date: " placeholder="Enter date"></ion-input>
     </ion-item>
+
+    <ion-button @key-up="passValuesToCreationEvent">Create Event</ion-button>
   </ion-list>
 </template>
 
@@ -28,5 +30,15 @@
 
   export default defineComponent({
     components: { IonInput, IonItem, IonList },
+    methods: {
+      passValuesToCreationEvent() {
+        const id = this.$refs.idInput.value;
+        const title = this.$refs.titleInput.value;
+        const startDate = this.$refs.startDateInput.value;
+        const endDate = this.$refs.endDateInput.value;
+
+        this.$emit('creation-event', { id, title, startDate, endDate });
+      }
+    }
   });
 </script>

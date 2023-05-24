@@ -31,8 +31,6 @@ import 'v-calendar/style.css';
 /*Filips calender saker ovan*/
 
 
-
-
 /*Filips dialog mys */
 
 const app = createApp(App)
