@@ -1,166 +1,31 @@
-<script setup lang="ts">
-import { VBtn, VCard, VCardActions, VCardText, VDialog, VSpacer, VThemeProvider } from 'vuetify/components'
-import { type Component, type PropType, computed, inject, onMounted, ref } from 'vue'
-import { type ConfirmDialogKeyValue } from './utils'
-
-const props = defineProps({
-  title: {
-    type: String,
-    required: false,
-    default: 'Are you sure?',
-  },
-  titleComponent: {
-    type: Object as PropType<Component>,
-    required: false,
-  },
-  titleComponentProps: {
-    type: Object,
-    required: false,
-  },
-  content: {
-    type: String,
-    required: false,
-    default: '',
-  },
-  contentComponent: {
-    type: Object as PropType<Component>,
-    required: false,
-  },
-  contentComponentProps: {
-    type: Object,
-    required: false,
-  },
-  confirmationKeyword: {
-    type: String,
-    required: false,
-  },
-  confirmationKeywordTextFieldProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  confirmationText: {
-    type: String,
-    required: false,
-    default: 'Ok',
-  },
-  cancellationText: {
-    type: String,
-    required: false,
-    default: 'Cancel',
-  },
-  dialogProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  cardProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  cardTitleProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  cardTextProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  cardActionsProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  cancellationButtonProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  confirmationButtonProps: {
-    type: Object,
-    required: false,
-    default: () => ({}),
-  },
-  theme: {
-    type: String,
-    required: true,
-  },
-  destroy: {
-    type: Function,
-    required: true,
-  },
-  promiseId: {
-    type: String,
-    required: true,
-  },
-})
-
-const dialog = inject('ConfirmDialogKey') as ConfirmDialogKeyValue
-const isOpen = ref(true)
-const textFieldInput = ref<HTMLInputElement | null>(null)
-const textField = ref('')
-
-function confirm() {
-  dialog?.state.promiseIds.get(props.promiseId)?.resolve?.(true)
-  isOpen.value = false
-}
-
-function cancel() {
-  dialog?.state.promiseIds.get(props.promiseId)?.resolve?.(false)
-  isOpen.value = false
-}
-
-onMounted(() => {
-  textFieldInput.value?.focus()
-})
-
-const confirmationButtonDisabled = computed(() => {
-  if (!props.confirmationKeyword)
-    return false
-
-  return props.confirmationKeyword !== textField.value
-})
-
-const finalDialogProps = computed(() => {
-  return {
-    ...props.dialogProps,
-    onAfterLeave() {
-      props.dialogProps.onAfterLeave?.()
-      dialog?.state.promiseIds.delete(props.promiseId)
-      props.destroy()
-    },
-  }
-})
-</script>
-
 <template>
-  <VThemeProvider :theme="theme">
-    <VDialog v-bind="finalDialogProps" v-model="isOpen">
-      <VCard v-bind="cardProps">
-        <component :is="titleComponent" v-if="titleComponent" v-bind="titleComponentProps" />
-        <VCardTitle v-else v-bind="cardTitleProps">
-          {{ title }}
-        </VCardTitle>
-        <VCardText v-bind="cardTextProps">
-          <component :is="contentComponent" v-if="contentComponent" v-bind="contentComponentProps" />
-          <VTextField v-else-if="confirmationKeyword" ref="textFieldInput" v-model="textField" v-bind="confirmationKeywordTextFieldProps" variant="underlined" />
-          <template v-else>
-            {{ content }}
-          </template>
-        </VCardText>
-        <VCardActions v-bind="cardActionsProps">
-          <VSpacer />
-          <VBtn v-bind="cancellationButtonProps" @click="cancel">
-            {{ cancellationText }}
-          </VBtn>
-          <VBtn color="primary" :disabled="confirmationButtonDisabled" v-bind="confirmationButtonProps" @click="confirm">
-            {{ confirmationText }}
-          </VBtn>
-        </VCardActions>
-      </VCard>
-    </VDialog>
-  </VThemeProvider>
+  <ion-page>
+    <ion-header>
+      <Button label="Show" icon="pi pi-external-link" @click="visible = true" />
+      <ion-toolbar>
+        <ion-title>Tab 2</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content :fullscreen="true">
+      <Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50vw' }">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Dialog>
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Tab 2</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ExploreContainer name="Tab 2 page" />
+    </ion-content>
+  </ion-page>
 </template>
+
+<script setup lang="ts">
+import Dialog from 'primevue/dialog';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import ExploreContainer from '@/components/ExploreContainer.vue';
+</script>
