@@ -30,10 +30,15 @@ import 'v-calendar/style.css';
 
 /*Filips calender saker ovan*/
 
-/*Filips dialog mys */
+/*Filips dialog mys från https://vue-modal-demo.netlify.app/ */
 
-import { createVuetify } from 'vuetify'
-import VuetifyUseDialog from 'vuetify-use-dialog'
+import Vue from 'vue';
+import Modal from './components/Modal.vue'; // Adjust the path based on your component location
+
+Vue.component('Modal', Modal);
+
+import VueModal from '@kouts/vue-modal'
+import '@kouts/vue-modal/dist/vue-modal.css'
 
 
 /*Filips dialog mys */
