@@ -42,14 +42,6 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(VCalendar, {}) // Filip la till denna rad och tog bort ;
-
-
-  const vuetify = createVuetify() // Filip la till denna rad och tog bort ;
-  
-  app.use(vuetify) // Filip la till denna rad och tog bort ;
-  app.use(VuetifyUseDialog) // Filip la till denna rad och tog bort ;
-  
-  app.mount('#app')
  
   
 router.isReady().then(() => {
