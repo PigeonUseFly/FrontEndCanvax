@@ -73,6 +73,9 @@ const edit = function (event) {
 const CreationEvent = function (event) {
   router.push('/tabs/tab2');
   console.log("Create event:");
+  fetch("http://localhost:8080/events/" + event.id, {
+    method: "POST"
+  });
 };
 
 /**
