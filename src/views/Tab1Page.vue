@@ -19,6 +19,7 @@
 </template>
 
 <script setup>
+import router from '@/router';
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
@@ -70,8 +71,8 @@ const edit = function (event) {
  * @param {*} event 
  */
 const CreationEvent = function (event) {
+  router.push('/tabs/tab2');
   console.log("Create event:");
-  showEventCreationDialog.value = true;
 };
 
 /**
