@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <div class="header-container">
-          <h1>Canvax</h1>
+          <h1></h1>
           <ion-item class="dropdown-container">
             <ion-label>Choose your program:</ion-label>
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
@@ -164,7 +164,7 @@ const onDeleteEvent = function (event) {
     color: #fff;
   }
   .vuecal__event:hover {
-    background-color: #00cc52;
+    background-color: #013060;
   }
   .vuecal__event-delete-button {
     color: #fff;
@@ -180,6 +180,7 @@ const onDeleteEvent = function (event) {
   top: 10px;
   right: 10px;
    background-color: #12426a;
+   color:#c0c5c8
 }
 
 .calendar-container {
@@ -217,7 +218,7 @@ const onDeleteEvent = function (event) {
 }
 
 .vuecal__event:hover {
-  background-color: #00cc52;
+  background-color: rgb(2, 73, 144);
   opacity: 0.8;
 }
 

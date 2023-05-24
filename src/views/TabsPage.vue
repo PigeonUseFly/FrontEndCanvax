@@ -14,8 +14,8 @@
         </ion-tab-button>
 
         <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon aria-hidden="true" :icon="square" />
-          <ion-label>Tab 3</ion-label>
+          <ion-icon :icon="pencil"></ion-icon>
+          <ion-label>My notes</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -23,6 +23,7 @@
 </template>
 
 <script setup lang="ts">
+import { pencil } from 'ionicons/icons';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
 import { arrowDown, calendarNumber, square} from 'ionicons/icons';
 </script>
