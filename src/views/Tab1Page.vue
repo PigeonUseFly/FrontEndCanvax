@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-import { VDialog, VCard, VCardTitle, VCardText, VSpacer, VIcon } from 'vuetify/lib';
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
