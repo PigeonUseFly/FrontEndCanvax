@@ -2,41 +2,45 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <h1>Canvax</h1>
+        <div class="header-container">
+          <h1>Canvax</h1>
+          <ion-item class="dropdown-container">
+            <ion-label>Choose your program:</ion-label>
+            <ion-select v-model="selectedOption" @ionChange="onOptionChange">
+              <ion-select-option value="TGSYA22h">Systemutvecklare</ion-select-option>
+              <ion-select-option value="SGSOC22h">Socionom</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <div class="dropdown-container">
-        <ion-item>
-          <ion-label>Choose your program:</ion-label>
-          <ion-select v-model="selectedOption" @ionChange="onOptionChange">
-            <ion-select-option value="TGSYA22h">Systemutvecklare</ion-select-option>
-            <ion-select-option value="SGSOC22h">Socionom</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </div>
       <div class="calendar-container">
         <vue-cal class="vuecal--blue-theme"
-        
-         :disable-views="['years', 'year']" :events="events"
-         :time-from="8 * 60"
-         :time-to = "20 * 55"
-         :special-hours="specialHours"
+          :disable-views="['years', 'year']" 
+          :events="events"
+          :time-from="8 * 60"
+          :time-to="20 * 55"
+          :special-hours="specialHours"
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
+          :event-class="'custom-event'"
           @event-delete="onDeleteEvent">
-          
         </vue-cal>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
+
+
+
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSelect, IonSelectOption } from '@ionic/vue';
+
 import ExploreContainer from '@/components/ExploreContainer.vue';
 
 const events = ref([]);
@@ -132,20 +136,98 @@ const onDeleteEvent = function (event) {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #8E00FF;
+  color: #2f00ff;
   height: 250px;
 }
 
-.vuecal {
-  height: 90vh;
+.vuecal--blue-theme {
+  font-size: 12px;
 }
+  .vuecal__header {
+    background-color: #12426a;
+    color: #fff;
+  }
+  .vuecal__body {
+    background-color: #f2f2f2;
+  }
+  .vuecal__day {
+    border-bottom: 1px solid #ddd;
+  }
+  .vuecal__hour-cell {
+    border-right: 1px solid #ddd;
+  }
+  .vuecal__event {
+    background-color: #0080ff;
+    color: #fff;
+  }
+  .vuecal__event-time {
+    color: #fff;
+  }
+  .vuecal__event:hover {
+    background-color: #00cc52;
+  }
+  .vuecal__event-delete-button {
+    color: #fff;
+    background-color: #cc0000;
+  }
+  .vuecal__event-delete-button:hover {
+    background-color: #4C0099;
+  }
+
+
 .dropdown-container {
   position: absolute;
   top: 10px;
   right: 10px;
+   background-color: #12426a;
 }
 
 .calendar-container {
-  margin-top: 60px; 
+  margin-top: 0px;
+  height: calc(100vh - 60px);
 }
+.vuecal--blue-theme {
+  font-size: 14px;
+}
+
+.vuecal__header {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.vuecal__body {
+  padding: 5px;
+}
+
+.vuecal__day {
+  height: 50px;
+}
+
+::v-deep .vuecal__hour {
+  line-height: 150px; /* Adjust the value to increase or decrease cell height */
+}
+
+.vuecal__event {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.vuecal__event-time {
+  font-size: 12px;
+}
+
+.vuecal__event:hover {
+  background-color: #00cc52;
+  opacity: 0.8;
+}
+
+.vuecal__event-delete-button {
+  padding: 5px;
+}
+
+.vuecal__event-delete-button:hover {
+  background-color: #4C0099;
+  opacity: 0.8;
+}
+
 </style>
