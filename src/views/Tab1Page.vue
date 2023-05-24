@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+import SavedModal from '~/components/SavedModal.vue'
 import { ref, onBeforeMount } from 'vue';
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
@@ -57,6 +58,14 @@ const onDeleteEvent = function (event) {
   });
 };
 
+export default {
+  components: { SavedModal },
+  data() {
+    return {
+      showModal: false,
+    }
+  },
+}
 
 </script>
 
