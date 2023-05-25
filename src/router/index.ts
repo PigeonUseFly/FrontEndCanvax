@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router'
 import TabsPage from '../views/TabsPage.vue'
 import FrontPage from '../views/FrontPage.vue'
 import ScheduleTab from '../views/ScheduleTab.vue'
-import JSONTab from '../views/JSONTab.vue'
+import JSONTab from '../views/Event.vue'
 import NoteTab from '../views/NoteTab.vue'
 
 const router = createRouter({

@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from 'vue-router';
 <nav>
 <RouterLink to="/"> front-page</RouterLink>
 <RouterLink to="/tabs/tab1">Schema</RouterLink>
-<RouterLink to="/tabs/tab2">Json</RouterLink>
+<RouterLink to="/tabs/tab2">Event</RouterLink>
 <RouterLink to="/tabs/tab3">tab3</RouterLink>
 </nav>
 </div>
