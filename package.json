@@ -21,7 +21,7 @@
     "@popperjs/core": "^2.11.7",
     "axios": "^1.3.6",
     "ionic2-calendar": "^1.0.1",
-    "ionicons": "^7.0.0",
+    "ionicons": "^7.1.1",
     "v-calendar": "^3.0.3",
     "vue": "^3.2.47",
     "vue-cal": "^4.8.1",
