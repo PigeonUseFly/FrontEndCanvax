@@ -1,9 +1,11 @@
 <template>
+    <ion-page>
     <div class="front-page">
       <h1>Canvax</h1>
       <button @click="$router.push('tabs/tab1')">View Schedule</button>
       <button>My Notes</button>
     </div>
+</ion-page>
   </template>
   
   <script setup>

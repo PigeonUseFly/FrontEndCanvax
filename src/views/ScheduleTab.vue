@@ -45,11 +45,11 @@ import ExploreContainer from '@/components/ExploreContainer.vue';
 
 const events = ref([]);
 const selectedOption = ref(null);
-let abortController = null; // AbortController instance
+let abortController = null; 
 
 const optionValues = {
-  TGSYA22h: 'TGSYA22h',
-  SGSOC22h: 'SGSOC22h'
+  Systemutvecklare: 'TGSYA22h',
+  Socionom: 'SGSOC22h'
 };
 
 const onOptionChange = async () => {
@@ -205,8 +205,8 @@ const onDeleteEvent = function (event) {
 }
 
 ::v-deep .vuecal__hour {
-  line-height: 150px; /* Adjust the value to increase or decrease cell height */
-}
+  line-height: 150px;  
+} /* TODO: Kolla över cellstorleken kan vara ett ionic problem då CSS inte verkar ändra något. */
 
 .vuecal__event {
   padding: 5px;

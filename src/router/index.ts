@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
 import TabsPage from '../views/TabsPage.vue'
 import FrontPage from '../views/FrontPage.vue'
-import Tab1Page from '../views/Tab1Page.vue'
-import Tab2Page from '../views/Tab2Page.vue'
-import Tab3Page from '../views/Tab3Page.vue'
+import ScheduleTab from '../views/ScheduleTab.vue'
+import JSONTab from '../views/JSONTab.vue'
+import NoteTab from '../views/NoteTab.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,15 +27,15 @@ const router = createRouter({
       },
       {
         path: 'tab1',
-        component: Tab1Page,
+        component: ScheduleTab,
       },
       {
         path: 'tab2',
-        component: Tab2Page,
+        component: JSONTab,
       },
       {
         path: 'tab3',
-        component: Tab3Page,
+        component: NoteTab,
       },
     ],
   },
