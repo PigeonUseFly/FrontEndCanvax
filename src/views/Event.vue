@@ -1,25 +1,29 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>File loader</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content :fullscreen="true">
-      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button @click="takePhoto()">
-      <ion-icon :icon="fileTrayFullOutline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
-        </ion-toolbar>
-      </ion-header>
+  <IonPage>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Create event" value="" :readonly="true"></ion-input>
+    </ion-item>
 
-      
-    </ion-content>
-  </ion-page>
+    <ion-item>
+      <ion-input ref="idInput" label="ID: " placeholder="Enter ID"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input ref="titleInput" label="Title:" placeholder="Enter event title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input ref="startDateInput" label="Starting date: " placeholder="Enter date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input ref="endDateInput" label="Ending date: " placeholder="Enter date"></ion-input>
+    </ion-item>
+
+  
+  </ion-list>
+</IonPage>
 </template>
 
 <script setup lang="ts">
