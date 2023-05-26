@@ -9,6 +9,8 @@
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
               <ion-select-option value="TGSYA22h">Systemutvecklare</ion-select-option>
               <ion-select-option value="SGSOC22h">Socionom</ion-select-option>
+              <ion-select-option value="TGSPA22h">Spelutveckling</ion-select-option>
+              <ion-select-option value="TGIDE22h1">Interaktionsdesign</ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -49,7 +51,9 @@ let abortController = null;
 
 const optionValues = {
   Systemutvecklare: 'TGSYA22h',
-  Socionom: 'SGSOC22h'
+  Socionom: 'SGSOC22h',
+  Spelutveckling: 'TGSPA22h',
+  Interaktionsdesign: 'TGIDE22h1'
 };
 
 const onOptionChange = async () => {
