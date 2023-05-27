@@ -27,6 +27,8 @@
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           :event-class="'custom-event'"
+          hide-weekends
+          events-on-month-view="short"
           @event-delete="onDeleteEvent">
         </vue-cal>
       </div>
