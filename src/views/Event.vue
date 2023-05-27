@@ -6,23 +6,23 @@
       </ion-item>
 
       <ion-item>
-        <ion-input ref="summaryInput" label="Summary:" placeholder="Enter short summary" v-model="summaryInput"></ion-input>
+        <ion-input label="Summary:" placeholder="Enter short summary" v-model="summaryInput"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input ref="descriptionInput" label="Description:" placeholder="Enter detailed description" v-model="descriptionInput"></ion-input>
+        <ion-input label="Description:" placeholder="Enter detailed description" v-model="descriptionInput"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input ref="startDateInput" type="datetime-local" label="Starting date: " v-model="startDateInput"></ion-input>
+        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-input ref="endDateInput" type="datetime-local" label="Ending date: " v-model="endDateInput"></ion-input>
+        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-input ref="locationInput" label="Location: " placeholder="Enter location" v-model="locationInput"></ion-input>
+        <ion-input label="Location: " placeholder="Enter location" v-model="locationInput"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage } from '@ionic/vue';
+import { IonPage, IonDatetime } from '@ionic/vue';
 import { ref } from 'vue';
 
 const summaryInput = ref('');
@@ -43,31 +43,39 @@ const endDateInput = ref('');
 const locationInput = ref('');
 
 const handleSubmit = async () => {
-  const summary = summaryInput.value.toString();
-  const description = descriptionInput.value.toString();
+  const summary = summaryInput.value;
+  const description = descriptionInput.value;
   const startDateString = startDateInput.value;
   const endDateString = endDateInput.value;
-  const location = locationInput.value.toString();
+  const location = locationInput.value;
 
-  const startDate = new Date(startDateString);
-  const endDate = new Date(endDateString);
+  console.log(summary);
+  console.log(summary.toString());
+  console.log(summary.valueOf);
+  console.log(summary.valueOf.toString());
 
   try {
-    await fetch("http://localhost:8080/events/insert", {
+    const response = await fetch("http://localhost:8080/events/insert", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        summary,
-        description,
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
-        location,
+        summary: summary,
+        description: description,
+        startDate: startDateString,
+        endDate: endDateString,
+        locationName: location,
       }),
     });
+
+    if (response.ok) {
+      console.log('Event added successfully');
+    } else {
+      console.error('Failed to add event');
+    }
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 };
 </script>
