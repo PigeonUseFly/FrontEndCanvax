@@ -2,10 +2,6 @@
   <IonPage>
     <ion-list>
       <ion-item>
-        <ion-input label="Create event" value="" :readonly="true"></ion-input>
-      </ion-item>
-
-      <ion-item>
         <ion-input label="Summary:" placeholder="Enter short summary" v-model="summaryInput"></ion-input>
       </ion-item>
 
@@ -33,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonDatetime } from '@ionic/vue';
+import { IonPage, IonDatetime, IonInput } from '@ionic/vue';
 import { ref } from 'vue';
 
 const summaryInput = ref('');
@@ -48,11 +44,6 @@ const handleSubmit = async () => {
   const startDateString = startDateInput.value;
   const endDateString = endDateInput.value;
   const location = locationInput.value;
-
-  console.log(summary);
-  console.log(summary.toString());
-  console.log(summary.valueOf);
-  console.log(summary.valueOf.toString());
 
   try {
     const response = await fetch("http://localhost:8080/events/insert", {
