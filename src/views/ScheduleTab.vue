@@ -3,7 +3,11 @@
     <ion-header>
       <ion-toolbar>
         <div class="header-container">
-          <h1></h1>
+          <h1>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
+              <span style="font-size: 40px;">Canvax</span>
+            </p>
+          </h1>
           <ion-item class="dropdown-container">
             <ion-label>Choose your program:</ion-label>
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
@@ -30,14 +34,23 @@
           hide-weekends
           events-on-month-view="short"
           @event-delete="onDeleteEvent">
+
+          <template #event="{ event }">
+            <div class="custom-event">
+              <h3 class="event-title">{{ event.title }}</h3>
+                <p>{{ event.description }}</p>
+                  <div class="event-details">
+                  <div class="location">Lokal: {{ event.location }}</div>
+                  <div class="time">Tid: {{ formatTime(event.start) }} - {{ formatTime(event.end) }}</div>
+               </div>
+            </div>
+          </template>
+
         </vue-cal>
       </div>
     </ion-content>
   </ion-page>
 </template>
-
-
-
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -93,9 +106,10 @@ const loadEvents = async () => {
     const values = Object.values(data);
     events.value = values.map(event => ({
       id: event.id,
-      title: event.summary,
+      title: event.moment,
       start: event.startDate,
-      end: event.endDate
+      end: event.endDate,
+      location: event.location
     }));
     console.log('Events loaded successfully!');
   } catch (error) {
@@ -120,8 +134,6 @@ const onEventClick = function (event) {
 };
 
 const onDeleteEvent = function (event) {
-  console.log("här jävlar");
-  console.log(event);
   fetch("http://localhost:8080/events/" + event.id, {
     method: "DELETE"
   })
@@ -132,6 +144,10 @@ const onDeleteEvent = function (event) {
     .catch(error => {
       console.error(error);
     });
+};
+
+const formatTime = (time) => {
+  return time.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' });
 };
 
 </script>
@@ -149,37 +165,60 @@ const onDeleteEvent = function (event) {
 .vuecal--blue-theme {
   font-size: 12px;
 }
+
   .vuecal__header {
     background-color: #12426a;
     color: #fff;
   }
+
   .vuecal__body {
     background-color: #f2f2f2;
   }
+
   .vuecal__day {
     border-bottom: 1px solid #ddd;
   }
+
   .vuecal__hour-cell {
     border-right: 1px solid #ddd;
   }
+
   .vuecal__event {
     background-color: #0080ff;
     color: #fff;
   }
+
   .vuecal__event-time {
     color: #fff;
   }
+
   .vuecal__event:hover {
     background-color: #013060;
   }
+
   .vuecal__event-delete-button {
     color: #fff;
     background-color: #cc0000;
   }
+
   .vuecal__event-delete-button:hover {
     background-color: #4C0099;
   }
 
+  .event-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .location {
+    flex: 1;
+  }
+
+  .time {
+    margin-left: 10px;
+    margin-right: 100px;
+  }
 
 .dropdown-container {
   position: absolute;
@@ -193,6 +232,7 @@ const onDeleteEvent = function (event) {
   margin-top: 0px;
   height: calc(100vh - 60px);
 }
+
 .vuecal--blue-theme {
   font-size: 14px;
 }
@@ -215,7 +255,7 @@ const onDeleteEvent = function (event) {
 } /* TODO: Kolla över cellstorleken kan vara ett ionic problem då CSS inte verkar ändra något. */
 
 .vuecal__event {
-  padding: 5px;
+  padding: 0px;
   margin-bottom: 5px;
 }
 
@@ -238,3 +278,9 @@ const onDeleteEvent = function (event) {
 }
 
 </style>
+
+<style scoped>
+  .custom-event .event-title {
+    font-size: 18px;
+  }
+  </style>

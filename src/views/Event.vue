@@ -10,11 +10,14 @@
       </ion-item>
 
       <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+        <ion-row>
+          <ion-col>
+            <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
+          </ion-col>
+          <ion-col>
+            <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+          </ion-col>
+        </ion-row>
       </ion-item>
 
       <ion-item>
@@ -27,6 +30,7 @@
     </ion-list>
   </IonPage>
 </template>
+
 
 <script setup lang="ts">
 import { IonPage, IonDatetime, IonInput } from '@ionic/vue';
