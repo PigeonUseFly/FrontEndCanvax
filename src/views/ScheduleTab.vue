@@ -3,11 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <div class="header-container">
-          <h1>
-            <p style="font-family: Georgia, 'Times New Roman', Times, serif;">
-              <span style="font-size: 40px;">Canvax</span>
-            </p>
-          </h1>
+          <h1></h1>
           <ion-item class="dropdown-container">
             <ion-label>Choose your program:</ion-label>
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
@@ -31,26 +27,18 @@
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           :event-class="'custom-event'"
-          hide-weekends
-          events-on-month-view="short"
+          
+          :show-all-day-events="'true'"
           @event-delete="onDeleteEvent">
-
-          <template #event="{ event }">
-            <div class="custom-event">
-              <h3 class="event-title">{{ event.title }}</h3>
-                <p>{{ event.description }}</p>
-                  <div class="event-details">
-                  <div class="location">Lokal: {{ event.location }}</div>
-                  <div class="time">Tid: {{ formatTime(event.start) }} - {{ formatTime(event.end) }}</div>
-               </div>
-            </div>
-          </template>
-
+          
         </vue-cal>
       </div>
     </ion-content>
   </ion-page>
 </template>
+
+
+
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
@@ -108,8 +96,7 @@ const loadEvents = async () => {
       id: event.id,
       title: event.moment,
       start: event.startDate,
-      end: event.endDate,
-      location: event.location
+      end: event.endDate
     }));
     console.log('Events loaded successfully!');
   } catch (error) {
@@ -134,6 +121,8 @@ const onEventClick = function (event) {
 };
 
 const onDeleteEvent = function (event) {
+  console.log("här jävlar");
+  console.log(event);
   fetch("http://localhost:8080/events/" + event.id, {
     method: "DELETE"
   })
@@ -144,10 +133,6 @@ const onDeleteEvent = function (event) {
     .catch(error => {
       console.error(error);
     });
-};
-
-const formatTime = (time) => {
-  return time.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' });
 };
 
 </script>
@@ -162,63 +147,42 @@ const formatTime = (time) => {
   height: 250px;
 }
 
+
+
 .vuecal--blue-theme {
   font-size: 12px;
 }
-
   .vuecal__header {
     background-color: #12426a;
     color: #fff;
   }
-
   .vuecal__body {
     background-color: #f2f2f2;
   }
-
   .vuecal__day {
     border-bottom: 1px solid #ddd;
   }
-
   .vuecal__hour-cell {
     border-right: 1px solid #ddd;
   }
-
   .vuecal__event {
     background-color: #0080ff;
     color: #fff;
   }
-
   .vuecal__event-time {
     color: #fff;
   }
-
   .vuecal__event:hover {
     background-color: #013060;
   }
-
   .vuecal__event-delete-button {
     color: #fff;
     background-color: #cc0000;
   }
-
   .vuecal__event-delete-button:hover {
     background-color: #4C0099;
   }
 
-  .event-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .location {
-    flex: 1;
-  }
-
-  .time {
-    margin-left: 10px;
-    margin-right: 100px;
-  }
 
 .dropdown-container {
   position: absolute;
@@ -232,7 +196,6 @@ const formatTime = (time) => {
   margin-top: 0px;
   height: calc(100vh - 60px);
 }
-
 .vuecal--blue-theme {
   font-size: 14px;
 }
@@ -242,9 +205,7 @@ const formatTime = (time) => {
   font-size: 16px;
 }
 
-.vuecal__body {
-  padding: 5px;
-}
+
 
 .vuecal__day {
   height: 50px;
@@ -252,11 +213,13 @@ const formatTime = (time) => {
 
 ::v-deep .vuecal__hour {
   line-height: 150px;  
+  
 } /* TODO: Kolla över cellstorleken kan vara ett ionic problem då CSS inte verkar ändra något. */
 
 .vuecal__event {
-  padding: 0px;
+  padding: 5px;
   margin-bottom: 5px;
+  
 }
 
 .vuecal__event-time {
@@ -278,9 +241,3 @@ const formatTime = (time) => {
 }
 
 </style>
-
-<style scoped>
-  .custom-event .event-title {
-    font-size: 18px;
-  }
-  </style>

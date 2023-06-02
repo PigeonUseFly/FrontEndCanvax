@@ -3,7 +3,7 @@
     <div class="front-page">
       <h1>Canvax</h1>
       <button @click="$router.push('tabs/tab1')">View Schedule</button>
-      <button>My Notes</button>
+      <button @click="$router.push('tabs/tab3')">My Notes</button>
     </div>
 </ion-page>
   </template>
