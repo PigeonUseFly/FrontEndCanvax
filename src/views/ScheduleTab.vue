@@ -27,9 +27,10 @@
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           :event-class="'custom-event'"
-          hide-weekends
-          events-on-month-view="short"
+          
+          :show-all-day-events="'true'"
           @event-delete="onDeleteEvent">
+          
         </vue-cal>
       </div>
     </ion-content>
@@ -93,7 +94,7 @@ const loadEvents = async () => {
     const values = Object.values(data);
     events.value = values.map(event => ({
       id: event.id,
-      title: event.summary,
+      title: event.moment,
       start: event.startDate,
       end: event.endDate
     }));
@@ -145,6 +146,8 @@ const onDeleteEvent = function (event) {
   color: #2f00ff;
   height: 250px;
 }
+
+
 
 .vuecal--blue-theme {
   font-size: 12px;
@@ -202,9 +205,7 @@ const onDeleteEvent = function (event) {
   font-size: 16px;
 }
 
-.vuecal__body {
-  padding: 5px;
-}
+
 
 .vuecal__day {
   height: 50px;
@@ -212,11 +213,13 @@ const onDeleteEvent = function (event) {
 
 ::v-deep .vuecal__hour {
   line-height: 150px;  
+  
 } /* TODO: Kolla över cellstorleken kan vara ett ionic problem då CSS inte verkar ändra något. */
 
 .vuecal__event {
   padding: 5px;
   margin-bottom: 5px;
+  
 }
 
 .vuecal__event-time {

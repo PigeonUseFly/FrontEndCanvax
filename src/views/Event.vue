@@ -10,11 +10,10 @@
       </ion-item>
 
       <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+        <div style="display: flex;">
+          <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
+          <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+        </div>
       </ion-item>
 
       <ion-item>
@@ -27,15 +26,14 @@
     </ion-list>
   </IonPage>
 </template>
-
 <script setup lang="ts">
 import { IonPage, IonDatetime, IonInput } from '@ionic/vue';
 import { ref } from 'vue';
 
 const summaryInput = ref('');
 const descriptionInput = ref('');
-const startDateInput = ref(getFormattedDate()); // Set initial value to today's date
-const endDateInput = ref(getFormattedDate()); // Set initial value to today's date
+const startDateInput = ref(getFormattedDate()); 
+const endDateInput = ref(getFormattedDate()); 
 const locationInput = ref('');
 
 function getFormattedDate() {
