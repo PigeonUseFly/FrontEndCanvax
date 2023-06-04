@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <div class="header-container">
-          <h1>Hej</h1>
+          <h1></h1>
           <ion-item class="dropdown-container">
             <ion-label>Choose your program:</ion-label>
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
