@@ -3,14 +3,13 @@
     <ion-header>
       <ion-toolbar>
         <div class="header-container">
-          <h1></h1>
+          <h1>Hej</h1>
           <ion-item class="dropdown-container">
             <ion-label>Choose your program:</ion-label>
             <ion-select v-model="selectedOption" @ionChange="onOptionChange">
-              <ion-select-option value="TGSYA22h">Systemutvecklare</ion-select-option>
-              <ion-select-option value="SGSOC22h">Socionom</ion-select-option>
-              <ion-select-option value="TGSPA22h">Spelutveckling</ion-select-option>
-              <ion-select-option value="TGIDE22h1">Interaktionsdesign</ion-select-option>
+              <ion-select-option v-for="(value, key) in optionValues" :key="key" :value="value">
+                {{ key }}
+              </ion-select-option>
             </ion-select>
           </ion-item>
         </div>
@@ -18,8 +17,9 @@
     </ion-header>
     <ion-content>
       <div class="calendar-container">
-        <vue-cal class="vuecal--blue-theme"
-          :disable-views="['years', 'year']" 
+        <vue-cal
+          class="vuecal--blue-theme"
+          :disable-views="['years', 'year']"
           :events="events"
           :time-from="8 * 60"
           :time-to="20 * 55"
@@ -27,116 +27,119 @@
           :on-event-click="onEventClick"
           :editable-events="{ title: false, drag: false, resize: false, delete: true, create: true }"
           :event-class="'custom-event'"
-          
           :show-all-day-events="'true'"
-          @event-delete="onDeleteEvent">
-          
-        </vue-cal>
+          @event-delete="onDeleteEvent"
+        ></vue-cal>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
-
-
-
-<script setup>
+<script>
 import { ref, onMounted, onUnmounted } from 'vue';
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSelect, IonSelectOption } from '@ionic/vue';
+import VueCal from 'vue-cal';
+import 'vue-cal/dist/vuecal.css';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonSelect, IonSelectOption, IonItem } from '@ionic/vue';
 
-import ExploreContainer from '@/components/ExploreContainer.vue';
+const API_BASE_URL = 'http://localhost:8080';
+const EVENTS_API_URL = `${API_BASE_URL}/events`;
+const ICAL_DOWNLOAD_API_URL = `${API_BASE_URL}/events/download-ical/`;
 
-const events = ref([]);
-const selectedOption = ref(null);
-let abortController = null; 
+export default {
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonContent,
+    IonSelect,
+    IonSelectOption,
+    IonItem,
+    VueCal,
+  },
 
-const optionValues = {
-  Systemutvecklare: 'TGSYA22h',
-  Socionom: 'SGSOC22h',
-  Spelutveckling: 'TGSPA22h',
-  Interaktionsdesign: 'TGIDE22h1'
-};
+  setup() {
+    const events = ref([]);
+    const selectedOption = ref(null);
 
-const onOptionChange = async () => {
-  const selectedValue = optionValues[selectedOption.value];
+    const loadEvents = async () => {
+      try {
+        const response = await fetch(EVENTS_API_URL);
+        const data = await response.json();
+        const values = Object.values(data);
+        events.value = values.map((event) => ({
+          id: event.id,
+          title: event.moment.replace('Moment: ', ''), // Remove the "Moment: " prefix
+          start: event.startDate,
+          end: event.endDate,
+          location: event.location,
+          program: event.summary,
+        }));
+        console.log('Events loaded successfully!');
+      } catch (error) {
+        console.error('Error loading events:', error);
+      }
+    };
 
-  try {
-    // Abort the previous request, if any
-    if (abortController) {
-      abortController.abort();
-    }
-
-    // Create a new AbortController instance
-    abortController = new AbortController();
-
-    // Send the selected value to your backend using a GET request
-    await fetch('http://localhost:8080/events/download-ical/' + selectedOption.value, {
-      signal: abortController.signal // Pass the signal to the request
+    onMounted(async () => {
+      await loadEvents();
     });
-    console.log('GET request sent successfully!');
-    loadEvents();
-  } catch (error) {
-    if (error.name === 'AbortError') {
-      // Request was aborted, handle it as needed
-      console.log('GET request aborted.');
-    } else {
-      console.error('Error sending GET request:', error);
-    }
-  }
-};
 
-const loadEvents = async () => {
-  try {
-    const response = await fetch('http://localhost:8080/events');
-    const data = await response.json();
-    const values = Object.values(data);
-    events.value = values.map(event => ({
-      id: event.id,
-      title: event.moment,
-      start: event.startDate,
-      end: event.endDate
-    }));
-    console.log('Events loaded successfully!');
-  } catch (error) {
-    console.error('Error loading events:', error);
-  }
-};
-
-onMounted(async () => {
-  await loadEvents();
-});
-
-onUnmounted(() => {
-  // Clean up resources, abort pending requests
-  if (abortController) {
-    abortController.abort();
-  }
-});
-
-const onEventClick = function (event) {
-  console.log("Event ID:", event.id);
-  // Do something with the ID here
-};
-
-const onDeleteEvent = function (event) {
-  console.log("här jävlar");
-  console.log(event);
-  fetch("http://localhost:8080/events/" + event.id, {
-    method: "DELETE"
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Event deleted:', data);
-    })
-    .catch(error => {
-      console.error(error);
+    onUnmounted(() => {
+      // Clean up resources, if any
     });
-};
 
+    const onOptionChange = async () => {
+      const optionValues = {
+        Systemutvecklare: 'TGSYA22h',
+        Socionom: 'SGSOC22h',
+        Spelutveckling: 'TGSPA22h',
+        Interaktionsdesign: 'TGIDE22h1',
+      };
+
+      const selectedValue = optionValues[selectedOption.value];
+
+      try {
+        await fetch(`${ICAL_DOWNLOAD_API_URL}${selectedOption.value}`);
+        console.log('GET request sent successfully!');
+        await loadEvents();
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          console.log('GET request aborted.');
+        } else {
+          console.error('Error sending GET request:', error);
+        }
+      }
+    };
+
+    const onEventClick = (event) => {
+      // Handle event click
+    };
+
+    const onDeleteEvent = (event) => {
+     
+      console.log(event);
+      fetch(`${EVENTS_API_URL}/${event.id}`, {
+        method: 'DELETE',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Event deleted:', data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+
+    return {
+      events,
+      selectedOption,
+      onOptionChange,
+      onEventClick,
+      onDeleteEvent,
+    };
+  },
+};
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
