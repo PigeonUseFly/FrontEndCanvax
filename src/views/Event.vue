@@ -10,11 +10,10 @@
       </ion-item>
 
       <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+        <div style="display: flex;">
+          <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Starting date: " v-model="startDateInput"></ion-datetime>
+          <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" label="Ending date: " v-model="endDateInput"></ion-datetime>
+        </div>
       </ion-item>
 
       <ion-item>
