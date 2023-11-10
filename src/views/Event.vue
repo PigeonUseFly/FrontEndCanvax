@@ -26,15 +26,14 @@
     </ion-list>
   </IonPage>
 </template>
-
 <script setup lang="ts">
 import { IonPage, IonDatetime, IonInput } from '@ionic/vue';
 import { ref } from 'vue';
 
 const summaryInput = ref('');
 const descriptionInput = ref('');
-const startDateInput = ref(getFormattedDate()); // Set initial value to today's date
-const endDateInput = ref(getFormattedDate()); // Set initial value to today's date
+const startDateInput = ref(getFormattedDate()); 
+const endDateInput = ref(getFormattedDate()); 
 const locationInput = ref('');
 
 function getFormattedDate() {
